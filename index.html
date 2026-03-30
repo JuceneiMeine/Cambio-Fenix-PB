@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Câmbio Fênix-PB - Descrição obejtiva do site">
+    <meta name="keywords" content="Câmbio, Fênix">
+    <meta name="author" content="Jucenei Meine">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/webp" href="./assets/images/logo-fenix-favicon.webp">
+    
+    <title>Câmbio Fênix PB</title>
+    
+</head>
+
+<body>
+    
+  <header class="header-container">
+    <div class="header-logo">
+      <a href="#quem-somos">
+          <img class="header-logo-image" src="./assets/images/logo-fenix-redimensionada.webp" alt="Logo Câmbio Fênix-PB"></a>
+    </div>    
+
+    <div class="hamburger" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#quem-somos">Quem Somos</a></li>
+      <li><a href="#atividades">Atividades</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#contact">Contatos</a></li>
+    </ul>   
+    
+    <section class="social-container">
+      <a href="https://www.instagram.com/SEU_USUARIO/" class="float-btn float-insta">
+        <i class="fab fa-instagram"></i></a>
+
+      <a href="https://wa.me/5583999180699?text=Olá! Gostaria de mais informações sobre o Câmbio PB." class="float-btn float-whats">
+        <i class="fab fa-whatsapp"></i></a>
+    </section>
+
+  </header>
+
+  <div id="conteudo-geral">
+
+    <main class="main-container">
+      <div class="name-fenix"><h1>Câmbio FÊNIX PB</h1></div>
+    
+      <div class="bento-grid">
+        <div class="bento-item item-grande" onclick="openLightbox(this, 'Nossa Equipe')">
+          <img src="./assets/images/Foto-001_Fenix.webp" alt="Time Fênix">
+          <div class="bento-caption">Nossa Equipe</div>
+        </div>
+      
+        <div class="bento-item" onclick="openLightbox('./assets/images/foto2.webp', 'Atendimento Especializado')">
+          <img src="./assets/images/Foto-002_Fenix.webp" alt="Atendimento">
+             <div class="bento-caption">Atendimento</div>
+        </div>
+
+        <div class="bento-item" onclick="openLightbox('./assets/images/foto3.webp', 'Segurança e Confiança')">
+          <img src="./assets/images/Foto-003.webp" alt="Segurança">
+            <div class="bento-caption">Segurança</div>
+        </div>
+
+        <div class="bento-item item-largo" onclick="openLightbox('./assets/images/foto4.webp', 'Nossa Unidade em João Pessoa')">
+          <img src="./assets/images/Foto-004.webp" alt="Unidade">
+            <div class="bento-caption">Unidade Fênix PB</div>
+        </div>
+      </div>
+      
+    </main>
+    
+    <div class="jargao-fenix">
+          <h2>Bora treinar e ser feliz!</h2>        
+    </div>
+
+    <section id="quem-somos" class="quem-somos-container">
+      <h2>Quem Somos</h2>
+      <p>O <strong>Câmbio</strong> é uma modalidade de voleibol adaptado que promove a saúde e a interação social, especialmente entre idosos na Paraíba.</p>
+      
+      <p>Nosso projeto foca na qualidade de vida e no espírito de equipe.</p>
+    </section>
+
+    <section id="contact" class="contact-container">
+      <h3>Contatos</h3>
+      <div class="contact-informations">
+        <p class="contact-item">
+          <i class="fas fa-envelope"></i> contato@cambiopb.com.br
+        </p>
+        <p class="contact-item">
+          <i class="fas fa-phone"></i> (51) 9 9423-5409 - Marinês
+        </p>
+        <p class="contact-item">
+          <i class="fas fa-phone"></i> (83) 9 9999-9999 - Beth
+        </p>
+        <p class="contact-item">
+          <i class="fas fa-phone"></i> (83) 9 9999-9999 - Helena
+        </p>
+      </div>
+    </section>  
+
+    <footer>
+      <p>&copy; 17 de Abril de 2025 - <strong>Câmbio FÊNIX PB</strong></p>
+      <p>Bora TREINAR e ser FELIZ!</p>
+    </footer>  
+
+  </div> 
+  
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-btn">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div id="lightbox-caption"></div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
