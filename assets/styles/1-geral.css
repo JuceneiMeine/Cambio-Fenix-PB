@@ -63,6 +63,24 @@ HEADER
 
 .header-container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px; /* Padding maior no topo */
+  
+  position: fixed; /* Garante que fique fixo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2005;
+  background-color: var(--amarelo-7);
+  
+  /* Transição suave para o padding e altura */
+  transition: all 0.4s ease-in-out; 
+  height: 100px; /* Altura inicial maior */
+  
+  /*
+  
+  display: flex;
   gap: 1.8rem;
   justify-content: space-between;
   align-items: center;
@@ -72,8 +90,17 @@ HEADER
   position: sticky;
   top: 0;
   z-index: 2005;
-  background-color: var(--amarelo-7);
+  background-color: var(--amarelo-7);*/
 }
+
+/* Estado do Header quando a página é rolada */
+.header-container.scrolled {
+    padding: 5px 20px; /* Reduz o padding vertical */
+    height: 60px; /* Reduz a altura total */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Adiciona uma sombra sutil */
+}
+
+
 
 /*==================== LOGO ====================*/
 
@@ -105,8 +132,8 @@ HEADER
   height: auto;
   display: block;
   
-  /* TRANSICÃO DA SOMBRA: Faz o drop-shadow aparecer suavemente */
-  transition: filter 0.3s ease; 
+  /* Transições suaves para o tamanho e filtro */
+  transition: all 0.4s ease-in-out, filter 0.3s ease;
 
   /* SOLUÇÃO MÁGICA: Sombra apenas no contorno do desenho transparente */
   /* Sintaxe: drop-shadow(deslocamento-x deslocamento-y desfoque cor) */
@@ -125,6 +152,12 @@ HEADER
   filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.35)); 
 }
 
+/* Estado da Imagem quando o header está 'scrolled' */
+.header-container.scrolled .header-logo-image {
+    max-width: 100px; /* Tamanho reduzido ao rolar */
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); /* Sombra mais sutil */
+}
+
 
 /*==================== SOCIAL ====================*/
 
@@ -136,40 +169,46 @@ HEADER
 
 .float-btn {
   display: flex;
-  gap: 10px;
+  
   align-items: center  ;
   /* Removemos o position: fixed */
   
-  width: 48px;  /* Reduzi o tamanho para caber no header */
-  height: 48px;
+  width: 50px;  /* Reduzi o tamanho para caber no header */
+  height: 50px;
   border-radius: 50%;
   color: white;
-  
-  justify-content: center;
-  align-items: center;
-  font-size: 1.9rem; /* Ícone um pouco menor */
 
+  font-size: 2rem;
+  
   /* Sombra levemente mais profunda para destacar o botão maior */
-  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4x 12px rgba(0,0,0,0.3);
+  position: fixed;
+  bottom: 20px;
   
-  z-index: 10;
+  z-index: 3000;
   text-decoration: none;
-  transition: transform 0.2s ease; /* Para um efeito de hover legal */  
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Para um efeito de hover legal */  
 }
 
 
   
-/* Efeito ao passar o mouse (opcional, mas recomendado) */
+/* Efeito de destaque ao passar o mouse */
 .float-btn:hover {
-  transform: scale(1.1); /* O botão cresce levemente ao tocar/passar o mouse */
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
   
-.float-insta {   
-  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+/* Posicionamento Individual */
+.float-insta {
+    left: 15px;      /* Fixado na ESQUERDA */
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    padding-left: .5rem;
 }
 
-.float-whats {   
-  background: #25d366; 
+.float-whats {
+    right: 15px;     /* Fixado na DIREITA */
+    background: #25d366; 
+    padding-left: .5rem;
 }
 
 .fab {
