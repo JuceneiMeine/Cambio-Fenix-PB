@@ -19,22 +19,14 @@ ESTILOS GLOBAIS
 body { /* Estilo visual do corpo inteiro da página */
 
   display: flex;
-  flex-direction: column; 
-      /* Organiza os itens em coluna (um abaixo do outro) */
-  min-height: 100vh;      
-      /* Ocupa no mínimo a altura total da tela */
-  margin: 0 auto; 
-      /* Centraliza o conteúdo horizontalmente */
-  padding: 0 .3rem;
-      /* Evita que o conteúdo encoste nas bordas em celulares */
-  max-width: 1200px;
-      /* Define a largura máxima (ex: 1200px é um padrão comum) */    
-  background: var(--creme-2); 
-      /* COR DE FUNDO da página */
-  color: var(--preto);
-      /* COR DO TEXTO padrão da página  */
-  overflow-x: hidden; 
-      /* Previne aparecer BARRA ROLAGEM HORIZONTAL (parte inferior) */
+  flex-direction: column; /* Itens um abaixo do outro */
+  min-height: 100vh; /* Ocupa no mínimo a altura total da tela */
+  margin: 0 auto;  /* Centraliza o conteúdo horizontalmente */
+  padding: 0 .3rem;  /* Conteúdo não encostar bordas celulares */
+  max-width: 1200px; /* Largura máxima (1200px - padrão) */    
+  background: var(--creme-2); /* COR DE FUNDO da página */
+  color: var(--preto); /* COR DO TEXTO padrão da página  */
+  overflow-x: hidden; /* Previne aparecer BARRA ROLAGEM HORIZONTAL (parte inferior) */
   
   font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
@@ -46,7 +38,7 @@ body { /* Estilo visual do corpo inteiro da página */
 h1, h2, h3 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  text-transform: uppercase; /* Opcional, combina muito com a Montserrat */
+  text-transform: uppercase; /* Maiuscula - combina Montserrat */
 }
 
 /* FONTE - Detalhes ou formulários com Roboto */
@@ -77,51 +69,45 @@ HEADER
 
 /*==================== LOGO ====================*/
 
-/* ==================== ESTILO DA LOGO (HEADER) ==================== */
+/* ============= ESTILO DA LOGO (HEADER) ============= */
 
-/* Container que envolve o link da logo - opcional, mas ajuda na organização */
-/* Container que envolve o link da logo */
-.header-logo {
+.header-logo { /* Container que envolve o link da logo */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* O Link da Logo (A Tag <a>) - Agora é apenas o container de interação */
-.header-logo a {
-  display: flex; /* Para alinhar a imagem internamente */
+.header-logo a { /* Agora é apenas o container de interação */
+  display: flex; /* Alinhar a imagem internamente */
   text-decoration: none !important;
-  border-radius: 0;          /* Removemos arredondamento */
-  padding: 0;                 /* Removemos padding */
-  background: transparent;    /* Removemos fundo verde */
-  box-shadow: none !important; /* REMOVEMOS A SOMBRA DA CAIXA */
-  transition: transform 0.3s ease; /* A animação de subida continua aqui */
+  border-radius: 0;  /* Remove arredondamento */
+  padding: 0;        /* Remove padding */
+  background: transparent;    /* Remove fundo verde */
+  box-shadow: none !important; /* Remove A SOMBRA DA CAIXA */
+  transition: transform 0.3s ease; /* animação de subida continua aqui */
 }
 
-
-/* AJUSTE DA IMAGEM DA LOGO (A Tag <img>) */
-.header-logo-image {
+.header-logo-image { /* AJUSTE DA IMAGEM DA LOGO (A Tag <img>) */
   max-width: 130px; /* Use o tamanho que já definiu, ex: 150px */
   height: auto;
   display: block;
   
-  /* TRANSICÃO DA SOMBRA: Faz o drop-shadow aparecer suavemente */
+  /* TRANSICÃO DA SOMBRA - drop-shadow aparecer suavemente */
   transition: filter 0.3s ease; 
 
-  /* SOLUÇÃO MÁGICA: Sombra apenas no contorno do desenho transparente */
-  /* Sintaxe: drop-shadow(deslocamento-x deslocamento-y desfoque cor) */
+  /* SOMBRA APENAS CONTORNO DESENHO */
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2)); 
 }
 
 /* --- EFEITO HOVER NO LINK (A Tag <a>) --- */
 .header-logo a:hover {
-  /* EFEITO DE MOVIMENTO: O link sobe levemente (leva a imagem junto) */
+  /* EFEITO DE MOVIMENTO: link sobe e leva a imagem junto) */
   transform: translateY(-4px); 
 }
 
-/* --- EFEITO NA IMAGEM AO PASSAR O MOUSE (A Tag <a> em hover afeta a <img>) --- */
+/* --- EFEITO NA IMAGEM AO PASSAR O MOUSE --- */
 .header-logo a:hover .header-logo-image {
-  /* No hover, o drop-shadow fica mais profundo (efeito "flutuar") */
+  /* Drop-shadow fica mais profundo (efeito "flutuar") */
   filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.35)); 
 }
 
@@ -137,10 +123,9 @@ HEADER
 .float-btn {
   display: flex;
   gap: 10px;
-  align-items: center  ;
-  /* Removemos o position: fixed */
+  align-items: center;  /* Remove o position: fixed */
   
-  width: 48px;  /* Reduzi o tamanho para caber no header */
+  width: 48px;  /* Reduz tamanho para caber no header */
   height: 48px;
   border-radius: 50%;
   color: white;
@@ -149,19 +134,17 @@ HEADER
   align-items: center;
   font-size: 1.9rem; /* Ícone um pouco menor */
 
-  /* Sombra levemente mais profunda para destacar o botão maior */
+  /* Sombra mais profunda para destacar o botão maior */
   box-shadow: 0 3px 8px rgba(0,0,0,0.3);
   
   z-index: 10;
   text-decoration: none;
-  transition: transform 0.2s ease; /* Para um efeito de hover legal */  
+  transition: transform 0.2s ease; /* efeito hover legal */  
 }
-
-
   
 /* Efeito ao passar o mouse (opcional, mas recomendado) */
 .float-btn:hover {
-  transform: scale(1.1); /* O botão cresce levemente ao tocar/passar o mouse */
+  transform: scale(1.1); /* botão cresce tocar/passar o mouse */
 }
   
 .float-insta {   
@@ -172,17 +155,6 @@ HEADER
   background: #25d366; 
 }
 
-.fab {
-
-}
-
-.fa-instagram {
-
-}
-
-.fa-whats {
-
-}
 
 /*==================== HAMBURGUER ====================*/
 
@@ -202,12 +174,13 @@ HEADER
 
 /* As 3 barrinhas */
 .hamburger span {
-    width: 50px; /* Seu novo tamanho */
-    height: 5px; /* Aumentei um pouco a espessura para combinar com a largura */
+    width: 50px; /* tamanho */
+    height: 5px; /* espessura maior - combinar com largura */
     background: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700);
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
     position: relative;
+
     /* MUDANÇA AQUI: centralizamos a origem da rotação */
     transform-origin: center;
 }
@@ -215,20 +188,19 @@ HEADER
 
 /* Animação para o "X" Perfeito com barras grandes */
 .hamburger.active span:nth-child(1) {
-    /* Rotaciona e desce um pouco para o centro */
-    transform: translateY(10px) rotate(45deg);
+  /* Rotaciona e desce um pouco para o centro */
+  transform: translateY(10px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
-    opacity: 0;
-    transform: translateX(-20px); /* Move para o lado oposto ao sumir */
+  opacity: 0;
+  transform: translateX(-20px); /* Move para o lado oposto ao sumir */
 }
 
 .hamburger.active span:nth-child(3) {
-    /* Rotaciona e sobe um pouco para o centro */
-    transform: translateY(-10px) rotate(-45deg);
+  /* Rotaciona e sobe um pouco para o centro */
+  transform: translateY(-10px) rotate(-45deg);
 }
-
 
 .nav-menu { 
   display: flex; 
@@ -269,42 +241,34 @@ MAIN - CONTAINER
 */
 
 .main-container {
-  flex: 1;                
-  /* Faz essa área 'esticar' e ocupar o espaço entre header e footer */
+  flex: 1; /* Faz essa área 'esticar' e ocupar o espaço entre header e footer */
 
   width: 100%;
-  max-width: 1200px; /* Limita a largura em monitores muito grandes */
+  max-width: 1200px; /* Limita largura em monitores grandes */
   margin: 0 auto;    /* Centraliza o carrossel na página */
   padding: 20px;     /* Espaçamento interno opcional */
   display: flex;
   
-  flex-direction: column; 
-  /* Organiza os itens em coluna (um abaixo do outro) */
+  flex-direction: column;  /* Organiza itens em coluna */
   
-  justify-content: center; 
-  /* Centraliza o carousel horizontalmente */
+  justify-content: center; /* Centraliza carousel horizontalmente */
   
-  align-items: center;     
-  /* Centraliza o carousel verticalmente no espaço que sobrou */
+  align-items: center;  /* Centraliza carousel verticalmente no espaço que sobrou */
 }
 
 .name-fenix {
     
   /* clamp(mínimo, ideal, máximo) */
   font-size: clamp(.8rem, 2vw, 3rem); 
-  color: var(--laranja-queimado);
-  
-  text-shadow: 2px 2px 20px var(--amarelo-4);
-  
-  width: 100%; 
-  /* Garante que ele use o espaço disponível */
-  
+
+  color: var(--laranja-queimado);  
+  text-shadow: 2px 2px 20px var(--amarelo-4);  
+  width: 100%;  /* Garante que ele use o espaço disponível */  
   
   text-align: center;
 
   letter-spacing: .2rem;
   word-spacing: .4rem;
-
 }
 
 /*
@@ -328,44 +292,43 @@ CAROUSEL - CONTAINER
   overflow: hidden;
   border-radius: 15px;
   cursor: pointer;
-  background: #000;
-  transition: transform 0.3s ease;
+  background: #f0f0f0; /* Fundo neutro se a imagem demorar a carregar */
+  transition: transform 0.2s ease-in-out;
+  /* Garante renderização nítida em redimensionamentos */
+  backface-visibility: hidden;
 }
 
 .bento-item:hover {
-  transform: scale(1.02); /* Leve zoom ao passar o mouse */
+  transform: scale(1.01); /* Zoom bem sutil para não borrar pixels */
 }
 
 .bento-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Aqui usamos cover para o grid ficar bonito */
-  opacity: 0.8;
-  transition: 0.3s;
+  object-fit: cover;
+  opacity: 1; /* REMOVIDO O DESFOQUE/OPACIDADE: Imagem sempre nítida */
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+/* Ajuste na Logo para evitar o borrão do drop-shadow excessivo */
+.header-logo-image {
+  max-width: 130px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  /* Sombra mais seca e simples */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .bento-item:hover img {
-  opacity: 1;
+  filter: brightness(1.1); /* Em vez de mudar opacidade, damos um leve brilho */
 }
 
 /* Variações de tamanho do Bento */
 .item-grande { grid-column: span 2; grid-row: span 2; } /* Ocupa 2x2 */
+
 .item-largo { grid-column: span 2; } /* Ocupa 2 colunas */
-
-/* Responsividade do Grid */
-@media (max-width: 768px) {
-  .bento-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
-  }
-}
-
-@media (max-width: 480px) {
-  .bento-grid {
-    grid-template-columns: 1fr; /* 1 coluna no celular */
-    grid-auto-rows: 250px;
-  }
-  .item-grande, .item-largo { grid-column: span 1; grid-row: span 1; }
-}
 
 /* Legendas discretas no grid */
 .bento-caption {
@@ -472,18 +435,6 @@ CONTATOS-CONTAINER
   font-family: 'Montserrat', sans-serif;
 }
 
-.fas {
-
-}
-
-.fa-envelope {
-
-}
-
-.fa-phone {
-  
-}
-
 /*
 =============================================================
 FOOTER
@@ -503,10 +454,95 @@ footer {
   padding: .4rem; 
 }
 
-
 /*
 =============================================================
-
+RESPONSIVIDADE
 =============================================================
 */
 
+@media (max-width: 480px) {
+  .bento-grid {
+    grid-template-columns: 1fr; /* 1 coluna no celular */
+    grid-auto-rows: 250px;
+  }
+
+  .item-grande, .item-largo { 
+    grid-column: span 1; grid-row: span 1; 
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex; /* Aparece no celular */
+  }
+
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column; /* No celular, um abaixo do outro */
+    position: fixed;
+    right: -100%; 
+    top: 0;
+    width: 70%;
+    height: 100vh;
+    background: white; /* Cor de fundo apenas no mobile */
+    z-index: 2000;
+    transition: right 0.5s ease-in-out, opacity 0.3s;
+    
+    /* Esconde para não vazar no topo ao fechar */
+    visibility: hidden;
+    opacity: 0;
+    justify-content: center;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Esconde os links especificamente durante o fechamento no mobile */
+  .nav-menu:not(.active) li {
+    opacity: 0;
+  }
+     
+  .carousel-container {
+    width: 95%;
+    height: 50vh; /* Ajuste leve na altura para mobile */
+  }
+   
+  /* Garante que a foto ocupe uma altura mínima visível no celular */
+  .foto-time-image {
+    flex: none; 
+    width: 100%;
+    height: 100%; /*Ajuste essa altura conforme desejar */
+    padding: 2px;
+    margin-bottom: .5rem;
+    border-radius: 1rem;
+  }
+
+  .nav-menu a {
+    font-size: 1.5rem;
+    /* Texto com degradê no menu mobile */
+    background: linear-gradient(45deg, #cc2323, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .name-fenix {
+    max-width:95vw;
+  }
+  
+  /* Ajuste opcional para o título no celular */
+  .jargao-fenix {
+    font-size: clamp(.8rem, 2vw, 3rem);
+    color: var(--ouro-1);
+    text-align: center;
+    ba
+  }  
+
+}

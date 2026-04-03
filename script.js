@@ -22,18 +22,15 @@ function openLightbox(elemento, caption) {
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCap = document.getElementById('lightbox-caption');
 
-    // Captura o SRC da imagem que está dentro do item clicado
-    const imagemOriginal = elemento.querySelector('img').src;
-
-    // Aplica ao Lightbox
-    lightboxImg.src = imagemOriginal;
-    lightboxCap.innerText = caption;
+    // Busca a imagem dentro do elemento clicado
+    const imgElement = elemento.querySelector('img');
     
-    // Exibe o Lightbox
-    lightbox.style.display = 'flex';
-    
-    // Trava a rolagem da página ao fundo
-    document.body.style.overflow = 'hidden';
+    if (imgElement) {
+        lightboxImg.src = imgElement.src;
+        lightboxCap.innerText = caption;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
 }
 
 function closeLightbox() {

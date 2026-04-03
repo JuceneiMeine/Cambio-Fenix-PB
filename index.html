@@ -22,10 +22,19 @@
 <body>
     
   <header class="header-container">
+
     <div class="header-logo">
       <a href="#quem-somos">
           <img class="header-logo-image" src="./assets/images/logo-fenix-redimensionada.webp" alt="Logo Câmbio Fênix-PB"></a>
-    </div>    
+    </div>  
+    
+    <section class="social-container">
+      <a href="https://www.instagram.com/SEU_USUARIO/" class="float-btn float-insta">
+        <i class="fab fa-instagram"></i></a>
+
+      <a href="https://wa.me/5583999180699?text=Olá! Gostaria de mais informações sobre o Câmbio PB." class="float-btn float-whats">
+        <i class="fab fa-whatsapp"></i></a>
+    </section>
 
     <div class="hamburger" id="hamburgerBtn">
       <span></span>
@@ -38,19 +47,11 @@
       <li><a href="#atividades">Atividades</a></li>
       <li><a href="#eventos">Eventos</a></li>
       <li><a href="#contact">Contatos</a></li>
-    </ul>   
-    
-    <section class="social-container">
-      <a href="https://www.instagram.com/SEU_USUARIO/" class="float-btn float-insta">
-        <i class="fab fa-instagram"></i></a>
-
-      <a href="https://wa.me/5583999180699?text=Olá! Gostaria de mais informações sobre o Câmbio PB." class="float-btn float-whats">
-        <i class="fab fa-whatsapp"></i></a>
-    </section>
+    </ul>      
 
   </header>
 
-  <div id="conteudo-geral">
+  <div id="main-conteudo">
 
     <main class="main-container">
       <div class="name-fenix"><h1>Câmbio FÊNIX PB</h1></div>
@@ -61,18 +62,28 @@
           <div class="bento-caption">Nossa Equipe</div>
         </div>
       
-        <div class="bento-item" onclick="openLightbox('./assets/images/foto2.webp', 'Atendimento Especializado')">
+        <div class="bento-item" onclick="openLightbox(this, 'Atendimento Especializado')">
           <img src="./assets/images/Foto-002_Fenix.webp" alt="Atendimento">
              <div class="bento-caption">Atendimento</div>
         </div>
 
-        <div class="bento-item" onclick="openLightbox('./assets/images/foto3.webp', 'Segurança e Confiança')">
+        <div class="bento-item" onclick="openLightbox(this, 'Segurança e Confiança')">
           <img src="./assets/images/Foto-003.webp" alt="Segurança">
             <div class="bento-caption">Segurança</div>
         </div>
 
-        <div class="bento-item item-largo" onclick="openLightbox('./assets/images/foto4.webp', 'Nossa Unidade em João Pessoa')">
-          <img src="./assets/images/Foto-004.webp" alt="Unidade">
+        <div class="bento-item" onclick="openLightbox(this, 'Segurança e Confiança')">
+          <img src="./assets/images/Foto-003.webp" alt="Segurança">
+            <div class="bento-caption">Segurança</div>
+        </div>
+
+        <div class="bento-item" onclick="openLightbox(this, 'Segurança e Confiança')">
+          <img src="./assets/images/Foto-003.webp" alt="Segurança">
+            <div class="bento-caption">Segurança</div>
+        </div>
+
+        <div class="bento-item item-largo" onclick="openLightbox(this, 'Nossa Unidade em João Pessoa')">
+          <img src="./assets/images/Foto-006.webp" alt="Unidade">
             <div class="bento-caption">Unidade Fênix PB</div>
         </div>
       </div>
