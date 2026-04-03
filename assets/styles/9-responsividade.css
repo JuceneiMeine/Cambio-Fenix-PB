@@ -75,15 +75,7 @@
     ba
   }
 
-  /* Ajuste para não cobrir o conteúdo em telas muito pequenas */
-  .float-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 2.3rem;
-        bottom: 15px;
-    }
-
-
+  
 
 }
 

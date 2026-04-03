@@ -40,21 +40,3 @@ function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
-
-
-
-
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('.header-container');
-    const logo = document.querySelector('.header-logo-image');
-    
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-
-
-
-
