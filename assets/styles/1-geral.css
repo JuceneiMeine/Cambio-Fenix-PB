@@ -280,35 +280,56 @@ CAROUSEL - CONTAINER
 /*==================== BENTO GRID ====================*/
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas no desktop */
-  grid-auto-rows: 200px; /* Altura base das linhas */
-  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  /* Aumentei um pouco a altura para acomodar fotos verticais melhor */
+  grid-auto-rows: 320px; 
+  gap: 20px;
   width: 100%;
   max-width: 1100px;
+  margin: 0 auto;
 }
 
 .bento-item {
   position: relative;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 12px;
   cursor: pointer;
-  background: #f0f0f0; /* Fundo neutro se a imagem demorar a carregar */
-  transition: transform 0.2s ease-in-out;
-  /* Garante renderização nítida em redimensionamentos */
-  backface-visibility: hidden;
+  
+  /* AJUSTE VISUAL: Fundo branco ou cinza claro para as "barras" 
+     que sobrarão quando a foto for exibida por inteiro */
+  background-color: #ffffff; 
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  
+  /* Garante que a legenda fique alinhada corretamente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .bento-item:hover {
-  transform: scale(1.01); /* Zoom bem sutil para não borrar pixels */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .bento-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1; /* REMOVIDO O DESFOQUE/OPACIDADE: Imagem sempre nítida */
+  /* Garante que a imagem ocupe o máximo de espaço sem esticar */
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+
+  /* MÁGICA AQUI: 'contain' mostra a foto INTEIRA sem cortes */
+  object-fit: contain; 
+  
   display: block;
-  transition: filter 0.3s ease;
+  opacity: 1;
+  transition: 0.3s;
+  
+  /* Posição centralizada */
+  margin: auto; 
 }
 
 /* Ajuste na Logo para evitar o borrão do drop-shadow excessivo */
@@ -321,33 +342,38 @@ CAROUSEL - CONTAINER
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
+/* Opcional: Efeito hover na imagem */
 .bento-item:hover img {
-  filter: brightness(1.1); /* Em vez de mudar opacidade, damos um leve brilho */
+  filter: brightness(1.05); /* Em vez de mudar opacidade, damos um leve brilho */
 }
 
-/* Variações de tamanho do Bento */
-.item-grande { grid-column: span 2; grid-row: span 2; } /* Ocupa 2x2 */
 
-.item-largo { grid-column: span 2; } /* Ocupa 2 colunas */
-
-/* Legendas discretas no grid */
+/* AJUSTE NA LEGENDA: Para fotos inteiras, a legenda fica melhor embaixo, 
+   fora da imagem, para não tampar nada */
 .bento-caption {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  color: white;
+  position: relative; /* Mudado de absolute para relative */
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  
+  /* Fundo sólido ou leve degradê no fundo do item */
+  background: #fff; 
+  color: var(--preto); /* Cor do texto padrão da página */
+  
   font-weight: bold;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+  font-size: 0.9rem;
+  text-align: center;
+  border-top: 1px solid #eee; /* Linha sutil de separação */
 }
 
 /*==================== LIGHTBOX ====================*/
 .lightbox {
-  display: none; /* Escondido */
+  display: none;
   position: fixed;
-  z-index: 2000;
+  z-index: 3000; /* Acima de tudo */
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0,0,0,0.95);
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -356,8 +382,9 @@ CAROUSEL - CONTAINER
 .lightbox-content {
   max-width: 90%;
   max-height: 80vh;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  border: 3px solid white;
+  border-radius: 4px;
+  object-fit: contain; /* Mostra a foto toda no zoom */
   animation: zoom 0.3s ease;
 }
 
@@ -369,17 +396,19 @@ CAROUSEL - CONTAINER
 .close-btn {
   position: absolute;
   top: 20px; right: 30px;
-  color: white;
-  font-size: 40px;
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
   cursor: pointer;
+  line-height: 1;
 }
 
 #lightbox-caption {
   color: white;
-  margin-top: 15px;
-  font-size: 1.2rem;
+  margin-top: 20px;
+  font-size: 1.4rem;
+  font-family: 'Montserrat', sans-serif;
 }
-
 
 /*
 =============================================================
@@ -461,14 +490,11 @@ RESPONSIVIDADE
 */
 
 @media (max-width: 480px) {
+
   .bento-grid {
     grid-template-columns: 1fr; /* 1 coluna no celular */
     grid-auto-rows: 250px;
-  }
-
-  .item-grande, .item-largo { 
-    grid-column: span 1; grid-row: span 1; 
-  }
+  }  
 }
 
 @media (max-width: 768px) {
@@ -478,7 +504,23 @@ RESPONSIVIDADE
   }
 
   .bento-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+    grid-template-columns: 1fr; /* Força uma única coluna */
+    grid-auto-rows: auto; /* Permite que a altura se ajuste */
+    gap: 15px;
+  }
+
+  .bento-item {
+    /* No celular, a foto define a altura do item */
+    height: auto; 
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  .bento-item img {
+    /* No celular, a foto ocupa a largura total e ajusta a altura */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   .nav-menu {

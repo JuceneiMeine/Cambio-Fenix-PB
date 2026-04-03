@@ -17,23 +17,32 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 });
 
 
+
+
+// Funções do Lightbox
 function openLightbox(elemento, caption) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCap = document.getElementById('lightbox-caption');
 
-    // Busca a imagem dentro do elemento clicado
-    const imgElement = elemento.querySelector('img');
-    
-    if (imgElement) {
-        lightboxImg.src = imgElement.src;
+    // Encontra a imagem dentro da div clicada
+    const imgInside = elemento.querySelector('img');
+
+    if (imgInside) {
+        lightboxImg.src = imgInside.src;
         lightboxCap.innerText = caption;
         lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; // Trava o scroll da página
     }
 }
 
 function closeLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
-    document.body.style.overflow = 'auto';
+    const lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Destrava o scroll
 }
+
+// Fechar Lightbox ao clicar na tecla ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") closeLightbox();
+});
