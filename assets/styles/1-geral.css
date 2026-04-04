@@ -1,8 +1,5 @@
-/*
-=============================================================
-RESET
-=============================================================
-*/
+
+/*=============== RESET ===============*/
 
 * { 
   margin: 0; 
@@ -10,23 +7,19 @@ RESET
   box-sizing: border-box;  /* Impedir o padding/borda aumentar o tamanho total do Elm */
 }
 
-/*
-=============================================================
-ESTILOS GLOBAIS
-=============================================================
-*/
+/*=============== ESTILOS GLOBAIS ===============*/
 
-body { /* Estilo visual do corpo inteiro da página */
+body { /* corpo inteiro da página */
 
   display: flex;
   flex-direction: column; /* Itens um abaixo do outro */
-  min-height: 100vh; /* Ocupa no mínimo a altura total da tela */
+  min-height: 100vh; /* Ocupa no mínimo a altura total tela */
   margin: 0 auto;  /* Centraliza o conteúdo horizontalmente */
-  padding: 0 .3rem;  /* Conteúdo não encostar bordas celulares */
+  padding: 0 .3rem;  /* Conteúdo não encostar borda celular */
   max-width: 1200px; /* Largura máxima (1200px - padrão) */    
   background: var(--creme-2); /* COR DE FUNDO da página */
   color: var(--preto); /* COR DO TEXTO padrão da página  */
-  overflow-x: hidden; /* Previne aparecer BARRA ROLAGEM HORIZONTAL (parte inferior) */
+  overflow-x: hidden; /* Previne BARRA ROLAGEM HORIZONTAL */
   
   font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
@@ -34,29 +27,25 @@ body { /* Estilo visual do corpo inteiro da página */
   line-height: 1.6; 
 }
 
-/* FONTE - Títulos com Montserrat */
-h1, h2, h3 {
+
+h1, h2, h3 { /* FONTE - Títulos com Montserrat */
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   text-transform: uppercase; /* Maiuscula - combina Montserrat */
 }
 
-/* FONTE - Detalhes ou formulários com Roboto */
-label, span, p {
+
+label, span, p { /* FONTE - Detalhes com Roboto */
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
 
 html {
-  scroll-behavior: smooth;
-  /* Garantir que a descida não seja um "salto" brusco, mas sim um deslize suave. */
+  scroll-behavior: smooth; /* descida com deslize suave. */
 }
 
-/*
-=============================================================
-HEADER
-=============================================================
-*/
+
+/*=============== HEADER - CONTAINER ===============*/ 
 
 .header-container {
   display: flex;
@@ -70,25 +59,10 @@ HEADER
   top: 0;
   z-index: 2005;
   background-color: transparent;
+
 }
 
-/*==================== LOGO ====================*/
-
-/* =========== ID ========== */
-
-#nosso-time, #quem-somos, #treinamentos-jogos, #local-treino, #diretoria, #contact {
-  /* scroll-margin-top: 80px; */
-
-  
-  padding-top: 80px;
-  margin-top: -80px;
-  display: block;
-  
-}
-
-/* ============= ESTILO DA LOGO (HEADER) ============= */
-
-
+/*=============== HEADER - LOGO ===============*/
 
 .header-logo { /* Container que envolve o link da logo */
   display: flex;
@@ -106,32 +80,30 @@ HEADER
   transition: transform 0.3s ease; /* animação de subida continua aqui */
 }
 
-.header-logo-image { /* AJUSTE DA IMAGEM DA LOGO (A Tag <img>) */
-  max-width: 130px; /* Use o tamanho que já definiu, ex: 150px */
+
+.header-logo-image { /* Ajuste evitar borrão drop-shadow */
+  max-width: 130px;
   height: auto;
   display: block;
+  transition: transform 0.3s ease;  /* Sombra mais seca e simples */
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)); /*Sombra contorno imagem */
+}
+
+.header-logo a:hover { /* Efeito hover link */
   
-  /* TRANSICÃO DA SOMBRA - drop-shadow aparecer suavemente */
-  transition: filter 0.3s ease; 
-
-  /* SOMBRA APENAS CONTORNO DESENHO */
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2)); 
-}
-
-/* --- EFEITO HOVER NO LINK (A Tag <a>) --- */
-.header-logo a:hover {
-  /* EFEITO DE MOVIMENTO: link sobe e leva a imagem junto) */
   transform: translateY(-4px); 
+    /* EFEITO DE MOVIMENTO: link sobe e leva imagem junto) */
 }
 
-/* --- EFEITO NA IMAGEM AO PASSAR O MOUSE --- */
-.header-logo a:hover .header-logo-image {
-  /* Drop-shadow fica mais profundo (efeito "flutuar") */
+
+.header-logo a:hover .header-logo-image { /* Efeito passar mouse */
+  
   filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.35)); 
+    /* Drop-shadow fica mais profundo (efeito "flutuar") */
 }
 
 
-/*==================== SOCIAL ====================*/
+/*=============== SOCIAL - CONTAINER ===============*/
 
 .social-container {
   display: flex;
@@ -175,9 +147,8 @@ HEADER
 }
 
 
-/*==================== HAMBURGUER ====================*/
+/*=============== HAMBURGUER - CONTAINER ===============*/
 
-/* Container do Hamburguer */
 .hamburger {
   display: none; /* Só aparece no mobile via Media Query */
   flex-direction: column;
@@ -193,7 +164,7 @@ HEADER
 
 /* As 3 barrinhas */
 .hamburger span {
-  width: 50px; /* tamanho */
+    width: 50px; /* tamanho */
   height: 5px; /* espessura maior - combinar com largura */
   background: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700);
   border-radius: 10px;
@@ -203,7 +174,6 @@ HEADER
   /* MUDANÇA AQUI: centralizamos a origem da rotação */
   transform-origin: center;
 }
-
 
 /* Animação para o "X" Perfeito com barras grandes */
 .hamburger.active span:nth-child(1) {
@@ -221,6 +191,18 @@ HEADER
   transform: translateY(-10px) rotate(-45deg);
 }
 
+
+/*=============== ID - MENU HAMBURGUER ===============*/
+
+#nosso-time, #quem-somos, #treinamentos-jogos, #local-treino, #diretoria, #contact {
+  padding-top: 80px;
+  margin-top: -80px;
+  display: block;  
+}
+
+
+/*=============== NAVEGAÇÃO - CONTAINER ===============*/
+
 .nav-menu { 
   display: flex; 
   flex-direction: row; /* Garante que fiquem lado a lado no PC */
@@ -237,6 +219,12 @@ HEADER
 .nav-menu li {
   
   opacity: 1 !important; /* Garante que os links apareçam no PC */
+  background-color: var(--creme-2);
+  padding: .2rem .5rem;
+  border-radius: .8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 /* Isso remove o sublinhado de todos os links do menu */
@@ -253,19 +241,16 @@ HEADER
 }
 
 
-/*
-=============================================================
-MAIN - CONTAINER
-=============================================================
-*/
+/*=============== MAIN - CONTAINER ===============*/
 
 .main-container {
   flex: 1; /* Faz essa área 'esticar' e ocupar o espaço entre header e footer */
 
   width: 100%;
+  
   max-width: 1200px; /* Limita largura em monitores grandes */
-  margin: 0 auto;    /* Centraliza o carrossel na página */
-  padding: 20px;     /* Espaçamento interno opcional */
+  margin: 10px auto;    /* Centraliza o carrossel na página */
+  padding: 10px;     /* Espaçamento interno opcional */
   display: flex;
   
   flex-direction: column;  /* Organiza itens em coluna */
@@ -275,11 +260,11 @@ MAIN - CONTAINER
   align-items: center;  /* Centraliza carousel verticalmente no espaço que sobrou */
 }
 
-.nosso-time-container {
-  background-color: var(--creme-2);
-}
 
-.name-fenix {
+
+/*=============== FOTO FENIX - CONTAINER ===============*/
+
+.titulo-fenix {
     
   /* clamp(mínimo, ideal, máximo) */
   font-size: clamp(.8rem, 2vw, 3rem); 
@@ -292,25 +277,124 @@ MAIN - CONTAINER
 
   letter-spacing: .2rem;
   word-spacing: .4rem;
+  
 }
 
-.name-diretoria {
-  font-size: clamp(1rem, 2vw, 3rem);
-  color: var(--laranja-queimado); 
-  width: 100%; 
+.foto-fenix-container {
+  width: 100%; /* Ocupa toda a largura da tela/pai */
+  max-width: 1200px; /* Limite opcional para não ficar gigante em monitores grandes */
+  margin: 0 auto; /* Centraliza o container na tela */
+  padding: 40px 20px; /* Espaçamento interno para respiro */
+  
+  /* Garante que o container se ajuste ao conteúdo */
+  display: grid;
+  place-items: center; /* Centraliza a foto se ela for menor que o max-width */
+}
+
+.foto-fenix {
+  position: relative; /* Necessário para a legenda absoluta */
+  width: 100%; /* Ocupa 100% do container pai */
+  /* Defina uma altura fixa ou proporção para evitar o transbordo */
+  height: 80vh; /* Exemplo: 80% da altura da tela, ou use 500px */
+  max-height: 600px; /* Limite de altura */
+  
+  border-radius: 15px; /* Bordas arredondadas modernas */
+  overflow: hidden; /* Corta qualquer coisa que tente sair (como a imagem) */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra para destaque */
+  cursor: pointer; /* Indica que é clicável */
+  transition: transform 0.3s ease; /* Efeito suave no hover */
+}
+
+.foto-fenix:hover {
+  transform: scale(1.02); /* Leve zoom ao passar o mouse */
+}
+
+/* 3. A Imagem - A mágica acontece aqui */
+.foto-fenix img {
+  width: 100%; /* Ocupa toda a largura do .foto-fenix */
+  height: 100%; /* Ocupa toda a altura do .foto-fenix */
+  
+  /* OBJECT-FIT É A CHAVE: 
+     Faz a imagem cobrir todo o espaço, cortando as sobras 
+     sem distorcer a foto do time. */
+  object-fit: cover; 
+  
+  /* Centraliza o corte da imagem (padrão, mas bom garantir) */
+  object-position: center; 
+  
+  display: block; /* Remove espaços vazios na base da imagem */
+}
+
+/* 4. A Legenda (foto-caption) */
+.foto-caption-fenix {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); /* Fundo degradê para leitura */
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
   text-align: center;
+}
+  
+
+
+
+
+.titulo-h2 {
+
+  margin-top: 0; /* Remove o espaço padrão do navegador no topo */
+  
+  margin-bottom: 20px; /* Espaço entre o título e o primeiro parágrafo */
+    
+  /* clamp(mínimo, ideal, máximo) */
+  font-size: clamp(1rem, 2vw, 3rem); 
+  font-weight: bold;
+
+  color: var(--laranja-queimado);  
+  text-shadow: 2px 2px 20px var(--amarelo-4);  
+  width: 100%;  /* Garante que ele use o espaço disponível */  
+  
+  text-align: center;
+
   letter-spacing: .2rem;
-  margin-top: 2rem;
+  word-spacing: .4rem;
+}
+  
+
+
+/*=============== QUEM SOMOS - CONTAINER ===============*/
+
+.quem-somos-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  
+  color: var(--marrom-1);
+  background-color: var(--creme-2);
+  background-color: transparent;
+  /* AJUSTE AQUI */
+  
+  padding-bottom: 10px; /* Controla o espaço interno na base */
+  
 }
 
-/*
-=============================================================
-GRID - CONTAINER
-=============================================================
-*/
+.quem-somos-container p {
+  margin-bottom: .3rem;
+  text-indent: 2rem;
+  text-align: justify;
+  hyphens: auto;    
+}
 
-/*==================== BENTO GRID ====================*/
-.bento-grid {
+
+
+/*=============== TREINOS GRID - CONTAINER ===============*/
+
+.treinos-grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   /* Altura proporcional à largura das colunas no desktop */
@@ -321,12 +405,12 @@ GRID - CONTAINER
   margin: 0 auto;
 }
 
-.bento-item {
+.foto-item {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
   cursor: pointer;
-  
+  /* max-width: 700px; */
   /* AJUSTE VISUAL: Fundo branco ou cinza claro para as "barras" 
      que sobrarão quando a foto for exibida por inteiro */
   background-color: #ffffff; 
@@ -341,12 +425,12 @@ GRID - CONTAINER
   align-items: center;
 }
 
-.bento-item:hover {
+.foto-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.bento-item img {
+.foto-item img {
   /* Garante que a imagem ocupe o máximo de espaço sem esticar */
   max-width: 100%;
   max-height: 100%;
@@ -365,25 +449,17 @@ GRID - CONTAINER
   margin: auto; 
 }
 
-/* Ajuste na Logo para evitar o borrão do drop-shadow excessivo */
-.header-logo-image {
-  max-width: 130px;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease;
-  /* Sombra mais seca e simples */
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
+
 
 /* Opcional: Efeito hover na imagem */
-.bento-item:hover img {
+.foto-item:hover img {
   filter: brightness(1.05); /* Em vez de mudar opacidade, damos um leve brilho */
 }
 
 
 /* AJUSTE NA LEGENDA: Para fotos inteiras, a legenda fica melhor embaixo, 
    fora da imagem, para não tampar nada */
-.bento-caption {
+.foto-caption {
   position: relative; /* Mudado de absolute para relative */
   bottom: 0;
   width: 100%;
@@ -399,7 +475,180 @@ GRID - CONTAINER
   border-top: 1px solid #eee; /* Linha sutil de separação */
 }
 
-/*==================== LIGHTBOX ====================*/
+
+/*=============== LOCALIZAÇÃO - CONTAINER ===============*/
+
+.localizacao-container {
+  width: 100%;           /* Ocupa toda a largura disponível */
+  max-width: 600px;     /* Limita a largura máxima em telas grandes */
+  margin: 2rem auto;     /* Centraliza o container na página */
+  padding: 0 15px;       /* Evita que o mapa encoste nas bordas em celulares */
+}
+
+.localizacao-container img {
+  width: 100%;           /* Faz o mapa preencher a largura da div */
+  height: 350px;         /* Define uma altura fixa */
+  border-radius: 10px;   /* Deixa as bordas arredondadas (opcional) */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Dá um efeito de sombra */
+}
+
+.localizacao-container p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--laranja-queimado);
+  text-align: center;
+}
+
+
+
+
+/*=============== FENIX - JARGÃO ===============*/
+
+
+/* Estilização para o container */
+.jargao-fenix {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estilização principal do Jargão */
+.jargao-fenix h2 {
+  font-family: 'Poppins', sans-serif; /* Fonte geométrica e limpa */
+  font-size: clamp(2rem, 3vw, 4rem);
+  font-weight: 800;
+  color: rgba(255, 102, 0, 0.866); /* Cor escura sólida para o texto */
+  display: inline-block;
+  position: relative;
+  padding: 20px 0;
+  width: 100%; 
+  text-align: center;
+  letter-spacing: .2rem;
+  margin: 2rem 0;
+}
+
+/* Linha de Gradiente ACIMA (Antes) */
+.jargao-fenix h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0; /* Posiciona no topo do H2 */
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, #ffcc00 0%, #ff6600 50%, #cc0000 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+/* A Linha de Gradiente abaixo do texto */
+.jargao-fenix h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* Linha ocupa toda a largura do texto */
+  height: 8px; /* Espessura da linha */
+  
+  /* Gradiente com as cores do time */
+  background: linear-gradient(90deg, #ffcc00 0%, #ff6600 50%, #cc0000 100%);
+  
+  border-radius: 4px;
+  
+  /* Animação sutil de brilho (opcional) */
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+
+
+/*=============== DIRETORIA - CONTAINER ===============*/
+
+.diretoria-container {
+  padding: 40px 20px;
+  background-color: var(--amarelo-9); /* Mantendo a paleta de cores */
+  margin-bottom: 2rem;
+}
+
+.diretoria-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 3 colunas no desktop */
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+  /* Garante que as linhas do grid tenham sempre o mesmo tamanho */
+  align-items: stretch;
+}
+
+.diretoria-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Alinha foto e texto em coluna */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  height: 100%; /* Força todos os cards a terem a mesma altura da linha */
+}
+
+.diretoria-card:hover {
+  transform: translateY(-8px);
+}
+
+.diretoria-card img {
+  width: 100%;
+  /* height: auto; */
+
+  /* FORÇANDO A ALTURA: 466px é o seu alvo para fotos de 700px de largura */
+  /* Usamos aspect-ratio para manter a proporção 3:2 independente da tela */
+  aspect-ratio: 3 / 2; 
+  
+  /* MÁGICA: Preenche o espaço e corta o que sobrar, sem esticar */
+  object-fit: cover; 
+  
+  display: block;
+}
+
+
+
+/*=============== CONTATOS - CONTAINER ===============*/
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-informations {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem ;
+  align-items: center;
+}
+
+.contact-item {
+  padding: .3rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+}
+
+
+/*=============== FOOTER ===============*/
+
+footer { 
+
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;  
+  background-color: var(--grafite-azul); 
+  color: var(--amarelo-2); 
+  text-align: center; 
+  letter-spacing: .1rem;
+  padding: 1.5rem .4rem; 
+}
+
+
+/*=============== LIGHTBOX ===============*/
+
 .lightbox {
   display: none;
   position: fixed;
@@ -444,254 +693,27 @@ GRID - CONTAINER
 }
 
 
-/* ============ LOCALIZAÇÃO =========== */
-
-.onde-treinamos {
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: .2rem;
-  word-spacing: .2rem;
-  color: var(--laranja-queimado);
-  margin-top: .5rem;
-}
-
-.localizacao-container {
-  width: 100%;           /* Ocupa toda a largura disponível */
-  max-width: 600px;     /* Limita a largura máxima em telas grandes */
-  margin: 2rem auto;     /* Centraliza o container na página */
-  padding: 0 15px;       /* Evita que o mapa encoste nas bordas em celulares */
-}
-
-.localizacao-container img {
-  width: 100%;           /* Faz o mapa preencher a largura da div */
-  height: 350px;         /* Define uma altura fixa */
-  border-radius: 10px;   /* Deixa as bordas arredondadas (opcional) */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Dá um efeito de sombra */
-}
-
-.localizacao-container p {
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--laranja-queimado);
-  text-align: center;
-}
 
 
 
 
 
 
-/*
-=============================================================
-FENIX - JARGAO
-=============================================================
-*/
-/*
-.jargao-fenix { 
-  font-size: clamp(1rem, 2vw, 3rem);
-  color: var(--abobora); 
-  width: 100%; 
-  text-align: center;
-  letter-spacing: .2rem;
-  margin: 2rem 0;  
-}
-*/
-
-/* Estilização para o container */
-.jargao-fenix {
-  text-align: center;
-  padding: 20px;
-}
-
-/* Estilização principal do Jargão */
-.jargao-fenix h2 {
-  font-family: 'Poppins', sans-serif; /* Fonte geométrica e limpa */
-  font-size: 2rem;
-  font-weight: 800;
-  color: rgba(255, 102, 0, 0.866); /* Cor escura sólida para o texto */
-  margin: 0;
-  display: inline-block;
-  position: relative;
-  padding-bottom: 15px;
-}
-
-/* A Linha de Gradiente abaixo do texto */
-.jargao-fenix h2::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%; /* Linha ocupa toda a largura do texto */
-  height: 8px; /* Espessura da linha */
-  
-  /* Gradiente com as cores do time */
-  background: linear-gradient(90deg, #ffcc00 0%, #ff6600 50%, #cc0000 100%);
-  
-  border-radius: 4px;
-  
-  /* Animação sutil de brilho (opcional) */
-  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
-}
-
-/*
-=============================================================
-FENIX - QUEM SOMOS
-=============================================================
-*/
-
-.quem-somos-container {
-  display: flex;
-  width: 70%;
-  font-size: 1.2rem;
-  flex-direction: column;
-  text-align: center;
-  margin-top: 3.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--marrom-1);
-  background-color: var(--creme-2);
-}
-
-.quem-somos-container h2 {
-  margin-bottom: 1.5rem;
-    
-}
-
-.quem-somos-container p {
-  margin-bottom: .3rem;
-  text-indent: 2rem;
-  text-align: justify;
-  hyphens: auto;
-    
-}
-/*
-=============================================================
-DIRETORIA
-=============================================================
-*/
-
-.diretoria-container {
-    padding: 40px 20px;
-    background-color: var(--amarelo-9); /* Mantendo a paleta de cores */
-    margin-bottom: 2rem;
-}
-
-.diretoria-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 3 colunas no desktop */
-    gap: 25px;
-    max-width: 1100px;
-    margin: 0 auto;
-    /* Garante que as linhas do grid tenham sempre o mesmo tamanho */
-    align-items: stretch;
-}
-
-.diretoria-card {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column; /* Alinha foto e texto em coluna */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-    height: 100%; /* Força todos os cards a terem a mesma altura da linha */
-}
-
-.diretoria-card:hover {
-    transform: translateY(-8px);
-}
-
-.diretoria-card img {
-    width: 100%;
-    /* height: auto; */
-
-    /* FORÇANDO A ALTURA: 466px é o seu alvo para fotos de 700px de largura */
-    /* Usamos aspect-ratio para manter a proporção 3:2 independente da tela */
-    aspect-ratio: 3 / 2; 
-    
-    /* MÁGICA: Preenche o espaço e corta o que sobrar, sem esticar */
-    object-fit: cover; 
-    
-    display: block;
-}
-
-.diretoria-info {
-    padding: 20px;
-    text-align: center;
-    flex-grow: 1; /* Faz o fundo branco preencher o resto do card se faltar altura */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-}
-
-.diretoria-info h3 {
-    font-size: 1.1rem;
-    color: var(--laranja-queimado);
-    margin: 0;
-}
 
 
 
-/*
-=============================================================
-CONTATOS-CONTAINER
-=============================================================
-*/
-
-.contact-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;  
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.contact-informations {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem ;
-  align-items: center;
-}
-
-.contact-item {
-  padding: .3rem;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-}
-
-/*
-=============================================================
-FOOTER
-=============================================================
-*/
-
-footer { 
-
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
-  
-  background-color: var(--grafite-azul); 
-  color: var(--amarelo-2); 
-  text-align: center; 
-  letter-spacing: .1rem;
-  padding: 1.5rem .4rem; 
-}
-
-/*
-=============================================================
-RESPONSIVIDADE
-=============================================================
-*/
+/*=============== RESPONSIVIDADE - 480 PX ===============*/
 
 @media (max-width: 480px) {
 
-  .bento-grid {
+  .treinos-grid-container {
     grid-template-columns: 1fr; /* 1 coluna no celular */
     grid-auto-rows: 250px;
   }  
 }
+
+
+/*=============== RESPONSIVIDADE - 768 PX ===============*/
 
 @media (max-width: 768px) {
 
@@ -699,20 +721,27 @@ RESPONSIVIDADE
     display: flex; /* Aparece no celular */
   }
 
-  .bento-grid {
+  .treinos-grid-container {
     grid-template-columns: 1fr; /* Força uma única coluna */
     grid-auto-rows: auto; /* Permite que a altura se ajuste */
     gap: 15px;
   }
 
-  .bento-item {
+  .foto-fenix {
     /* No celular, a foto define a altura do item */
     height: auto; 
     padding: 10px;
     background-color: #fff;
   }
 
-  .bento-item img {
+  .foto-item {
+    /* No celular, a foto define a altura do item */
+    height: auto; 
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  .foto-item img {
     /* No celular, a foto ocupa a largura total e ajusta a altura */
     width: 100%;
     height: auto;
@@ -746,12 +775,9 @@ RESPONSIVIDADE
   /* Esconde os links especificamente durante o fechamento no mobile */
   .nav-menu:not(.active) li {
     opacity: 0;
+  
   }
-     
-  .carousel-container {
-    width: 95%;
-    height: 50vh; /* Ajuste leve na altura para mobile */
-  }
+  
    
   /* Garante que a foto ocupe uma altura mínima visível no celular */
   .foto-time-image {
@@ -769,13 +795,16 @@ RESPONSIVIDADE
     background: linear-gradient(45deg, #cc2323, #ff8c00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
   }
 
-  .name-fenix {
+  
+
+  .titulo-fenix {
     max-width:95vw;    
   }
 
-  .name-diretoria {
+  .titulo-h2 {
     max-width:95vw;
         
   }
@@ -787,21 +816,15 @@ RESPONSIVIDADE
     text-align: center;
   }  
 
-  .jargao-fenix h2 {
   
-  font-size: 1.7rem;
-  
-}
-
-
   .quem-somos-container {    
     width: 100%;
     
   }
 
 
+/*=============== RESPONSIVIDADE - DIRETORIA ===============*/
 
-/* =========== RESPONSIVIDADE DIRETORIA =========== */
 
 .diretoria-grid {
     grid-template-columns: 1fr; /* Coluna única no celular */
