@@ -193,7 +193,7 @@ HEADER
 
 /* As 3 barrinhas */
 .hamburger span {
-    width: 50px; /* tamanho */
+  width: 50px; /* tamanho */
   height: 5px; /* espessura maior - combinar com largura */
   background: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700);
   border-radius: 10px;
@@ -446,10 +446,20 @@ GRID - CONTAINER
 
 /* ============ LOCALIZAÇÃO =========== */
 
+.onde-treinamos {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: .2rem;
+  word-spacing: .2rem;
+  color: var(--laranja-queimado);
+  margin-top: .5rem;
+}
+
 .localizacao-container {
   width: 100%;           /* Ocupa toda a largura disponível */
   max-width: 600px;     /* Limita a largura máxima em telas grandes */
-  margin: 20px auto;     /* Centraliza o container na página */
+  margin: 2rem auto;     /* Centraliza o container na página */
   padding: 0 15px;       /* Evita que o mapa encoste nas bordas em celulares */
 }
 
@@ -467,15 +477,7 @@ GRID - CONTAINER
   text-align: center;
 }
 
-.onde-treinamos {
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: .2rem;
-  word-spacing: .2rem;
-  color: var(--laranja-queimado);
-  margin-top: 1.5rem;
-}
+
 
 
 
@@ -485,15 +487,51 @@ GRID - CONTAINER
 FENIX - JARGAO
 =============================================================
 */
-
+/*
 .jargao-fenix { 
   font-size: clamp(1rem, 2vw, 3rem);
   color: var(--abobora); 
   width: 100%; 
   text-align: center;
   letter-spacing: .2rem;
-  margin: 2rem 0;
+  margin: 2rem 0;  
+}
+*/
+
+/* Estilização para o container */
+.jargao-fenix {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estilização principal do Jargão */
+.jargao-fenix h2 {
+  font-family: 'Poppins', sans-serif; /* Fonte geométrica e limpa */
+  font-size: 2rem;
+  font-weight: 800;
+  color: rgba(255, 102, 0, 0.866); /* Cor escura sólida para o texto */
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+/* A Linha de Gradiente abaixo do texto */
+.jargao-fenix h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* Linha ocupa toda a largura do texto */
+  height: 8px; /* Espessura da linha */
   
+  /* Gradiente com as cores do time */
+  background: linear-gradient(90deg, #ffcc00 0%, #ff6600 50%, #cc0000 100%);
+  
+  border-radius: 4px;
+  
+  /* Animação sutil de brilho (opcional) */
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
 }
 
 /*
@@ -540,7 +578,7 @@ DIRETORIA
 
 .diretoria-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+    grid-template-columns: repeat(2, 1fr); /* 3 colunas no desktop */
     gap: 25px;
     max-width: 1100px;
     margin: 0 auto;
@@ -619,6 +657,7 @@ CONTATOS-CONTAINER
 .contact-item {
   padding: .3rem;
   font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
 }
 
 /*
@@ -747,6 +786,12 @@ RESPONSIVIDADE
     color: var(--ouro-1);
     text-align: center;
   }  
+
+  .jargao-fenix h2 {
+  
+  font-size: 1.7rem;
+  
+}
 
 
   .quem-somos-container {    
