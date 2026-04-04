@@ -256,6 +256,10 @@ MAIN - CONTAINER
   align-items: center;  /* Centraliza carousel verticalmente no espaço que sobrou */
 }
 
+.nosso-time-container {
+  background-color: var(--amarelo-9);
+}
+
 .name-fenix {
     
   /* clamp(mínimo, ideal, máximo) */
@@ -271,9 +275,18 @@ MAIN - CONTAINER
   word-spacing: .4rem;
 }
 
+.name-diretoria {
+  font-size: clamp(1rem, 2vw, 3rem);
+  color: var(--laranja-queimado); 
+  width: 100%; 
+  text-align: center;
+  letter-spacing: .2rem;
+  margin-top: 2rem;
+}
+
 /*
 =============================================================
-CAROUSEL - CONTAINER
+GRID - CONTAINER
 =============================================================
 */
 
@@ -281,8 +294,8 @@ CAROUSEL - CONTAINER
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* Aumentei um pouco a altura para acomodar fotos verticais melhor */
-  grid-auto-rows: 320px; 
+  /* Altura proporcional à largura das colunas no desktop */
+  grid-auto-rows: min-content; 
   gap: 20px;
   width: 100%;
   max-width: 1100px;
@@ -319,10 +332,11 @@ CAROUSEL - CONTAINER
   max-width: 100%;
   max-height: 100%;
   width: auto;
-  height: auto;
+  height: auto; /* Deixa a imagem ditar a altura da caixa */
 
   /* MÁGICA AQUI: 'contain' mostra a foto INTEIRA sem cortes */
-  object-fit: contain; 
+  aspect-ratio: 3 / 2; /* Força a proporção 3:2 via código */
+  object-fit: cover; 
   
   display: block;
   opacity: 1;
@@ -357,8 +371,8 @@ CAROUSEL - CONTAINER
   padding: 10px;
   
   /* Fundo sólido ou leve degradê no fundo do item */
-  background: #fff; 
-  color: var(--preto); /* Cor do texto padrão da página */
+  background: var(--amarelo-9); 
+  color: var(--laranja-queimado); /* Cor do texto padrão da página */
   
   font-weight: bold;
   font-size: 0.9rem;
@@ -422,6 +436,7 @@ FENIX - JARGAO
   width: 100%; 
   text-align: center;
   letter-spacing: .2rem;
+  
 }
 
 /*
@@ -449,7 +464,7 @@ DIRETORIA
 .diretoria-container {
     padding: 40px 20px;
     background-color: var(--amarelo-9); /* Mantendo a paleta de cores */
-    margin: 2rem 0;
+    margin-bottom: 2rem;
 }
 
 .diretoria-grid {
@@ -644,7 +659,12 @@ RESPONSIVIDADE
   }
 
   .name-fenix {
+    max-width:95vw;    
+  }
+
+  .name-diretoria {
     max-width:95vw;
+        
   }
   
   /* Ajuste opcional para o título no celular */
@@ -652,7 +672,6 @@ RESPONSIVIDADE
     font-size: clamp(.8rem, 2vw, 3rem);
     color: var(--ouro-1);
     text-align: center;
-    ba
   }  
 
 /* =========== RESPONSIVIDADE DIRETORIA =========== */

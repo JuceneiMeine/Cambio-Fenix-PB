@@ -1,19 +1,9 @@
-/* Se você escolher 900x600 (3:2), use este ajuste: */
 
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* Altura proporcional à largura das colunas no desktop */
-  grid-auto-rows: min-content; 
-  gap: 20px;
-}
 
 .bento-item img {
-  width: 100%;
-  height: auto; /* Deixa a imagem ditar a altura da caixa */
-  aspect-ratio: 3 / 2; /* Força a proporção 3:2 via código */
+    
   object-fit: cover; /* Garante preenchimento total se houver erro de 1px */
-  display: block;
+  
 }
 
 
