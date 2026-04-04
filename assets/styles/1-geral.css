@@ -76,7 +76,7 @@ HEADER
 
 /* =========== ID ========== */
 
-#nosso-time, #quem-somos, #treinamentos-jogos, #diretoria, #contact {
+#nosso-time, #quem-somos, #treinamentos-jogos, #local-treino, #diretoria, #contact {
   /* scroll-margin-top: 80px; */
 
   
@@ -179,29 +179,29 @@ HEADER
 
 /* Container do Hamburguer */
 .hamburger {
-    display: none; /* Só aparece no mobile via Media Query */
-    flex-direction: column;
-    justify-content: space-around;
-    width: 60px;
-    height: 30px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 2001; /* Acima de tudo */
+  display: none; /* Só aparece no mobile via Media Query */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 60px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2001; /* Acima de tudo */
 }
 
 /* As 3 barrinhas */
 .hamburger span {
     width: 50px; /* tamanho */
-    height: 5px; /* espessura maior - combinar com largura */
-    background: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700);
-    border-radius: 10px;
-    transition: all 0.3s ease-in-out;
-    position: relative;
+  height: 5px; /* espessura maior - combinar com largura */
+  background: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
 
-    /* MUDANÇA AQUI: centralizamos a origem da rotação */
-    transform-origin: center;
+  /* MUDANÇA AQUI: centralizamos a origem da rotação */
+  transform-origin: center;
 }
 
 
@@ -443,6 +443,43 @@ GRID - CONTAINER
   font-family: 'Montserrat', sans-serif;
 }
 
+
+/* ============ LOCALIZAÇÃO =========== */
+
+.localizacao-container {
+  width: 100%;           /* Ocupa toda a largura disponível */
+  max-width: 600px;     /* Limita a largura máxima em telas grandes */
+  margin: 20px auto;     /* Centraliza o container na página */
+  padding: 0 15px;       /* Evita que o mapa encoste nas bordas em celulares */
+}
+
+.localizacao-container img {
+  width: 100%;           /* Faz o mapa preencher a largura da div */
+  height: 350px;         /* Define uma altura fixa */
+  border-radius: 10px;   /* Deixa as bordas arredondadas (opcional) */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Dá um efeito de sombra */
+}
+
+.localizacao-container p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--laranja-queimado);
+  text-align: center;
+}
+
+.onde-treinamos {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: .2rem;
+  word-spacing: .2rem;
+  color: var(--laranja-queimado);
+  margin-top: 1.5rem;
+}
+
+
+
+
 /*
 =============================================================
 FENIX - JARGAO
@@ -455,6 +492,7 @@ FENIX - JARGAO
   width: 100%; 
   text-align: center;
   letter-spacing: .2rem;
+  margin: 2rem 0;
   
 }
 
