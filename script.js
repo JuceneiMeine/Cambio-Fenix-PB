@@ -48,3 +48,21 @@ document.addEventListener('keydown', (e) => {
 });
 
 
+// BOTÃO SAIR
+
+document.getElementById('logoutBtn').addEventListener('click', function(event) {
+    // Impede que a página recarregue ou suba para o topo
+    event.preventDefault();
+
+    // 1. Limpa os dados de autenticação (ajuste conforme seu sistema)
+    localStorage.removeItem('userToken'); 
+    sessionStorage.clear();
+
+    // 2. Feedback opcional para o usuário
+    alert('Sessão encerrada com sucesso!');
+
+    // 3. Redireciona para a página de login ou home
+    window.location.href = 'login.html'; 
+});
+
+
