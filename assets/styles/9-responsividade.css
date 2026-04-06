@@ -1,0 +1,182 @@
+/*=====================================================
+  RESPONSIVIDADE
+  =====================================================*/
+
+/*=========== RESPONSIVIDADE - 900 PX ===========*/
+
+@media (max-width: 900px) {
+
+  .hamburger {
+    display: flex; 
+      /* Aparece no celular */
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column; 
+    position: fixed;
+    right: -100%; 
+    top: 0;
+    width: 70%;
+    height: 100vh;
+    background: white; 
+    z-index: 2000;
+    transition: right 0.5s ease-in-out, opacity 0.3s;
+    
+    /* Esconde para não vazar no topo ao fechar */
+    visibility: hidden;
+    opacity: 0;
+    justify-content: center;
+  }
+
+  .nav-menu.active {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Esconde os links especificamente durante o fechamento no mobile */
+  .nav-menu:not(.active) li {
+    opacity: 0;  
+  }
+}
+
+/*=========== RESPONSIVIDADE - 768 PX ===========*/
+
+@media (max-width: 768px) {
+
+  h1 {
+    
+  }
+
+  h2 {
+    margin-top: 1rem;
+  }
+
+  .hamburger {
+    display: flex; 
+      /* Aparece no celular */
+  }
+
+  .treinos-grid-container {
+    grid-template-columns: 1fr; 
+      /* Força uma única coluna */
+    grid-auto-rows: auto; 
+      /* Permite que a altura se ajuste */
+    gap: 15px;
+  }  
+
+  .foto-fenix {
+    /* No celular, a foto define a altura do item */
+    height: auto; 
+    padding: 0;
+    background-color: #fff;
+  }
+
+  .foto-item {
+    /* No celular, a foto define a altura do item */
+    height: auto; 
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  .foto-item img {
+    /* No celular, a foto ocupa a largura total e ajusta a altura */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column; 
+      /* No celular, um abaixo do outro */
+    position: fixed;
+    right: -100%; 
+    top: 0;
+    width: 70%;
+    height: 100vh;
+    background: white; 
+    z-index: 2000;
+    transition: right 0.5s ease-in-out, opacity 0.3s;
+    
+    /* Esconde para não vazar no topo ao fechar */
+    visibility: hidden;
+    opacity: 0;
+    justify-content: center;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Esconde os links especificamente durante o fechamento no mobile */
+  .nav-menu:not(.active) li {
+    opacity: 0;  
+  }  
+   
+  /* Garante que a foto ocupe uma altura mínima visível no celular */
+  .foto-time-image {
+    flex: none; 
+    width: 100%;
+    height: 100%; 
+    padding: 2px;
+    margin-bottom: .5rem;
+    border-radius: 1rem;
+  }
+
+  .nav-menu a {
+    font-size: 1.5rem;
+    /* Texto com degradê no menu mobile */
+    background: linear-gradient(45deg, #cc2323, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+  }   
+    
+  /* Ajuste opcional para o título no celular */
+  .jargao-fenix {
+    font-size: clamp(.8rem, 2vw, 3rem);
+    color: var(--ouro-1);
+    text-align: center;
+  }  
+  
+  .quem-somos-container {    
+    width: 100%;    
+  }
+
+  footer {   
+  font-size: 1rem;
+  font-weight: 300;    
+  color: var(--amarelo-2);   
+}
+
+
+/*=========== RESPONSIVIDADE - DIRETORIA ===========*/
+
+
+.diretoria-grid {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    grid-auto-rows: auto;
+  }
+    
+  .diretoria-card {
+    max-width: 450px; 
+      /* Evita que o card fique largo demais em tablets */
+    margin: 0 auto;
+  }
+
+}
+
+
+/*=========== RESPONSIVIDADE - 480 PX ===========*/
+
+@media (max-width: 480px) {
+
+  .treinos-grid-container {
+    grid-template-columns: 1fr; /* 1 coluna no celular */
+    grid-auto-rows: 250px;
+  }  
+}

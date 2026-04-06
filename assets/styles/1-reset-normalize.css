@@ -1,0 +1,89 @@
+
+/*=====================================================
+  RESET & NORMALIZE
+  =====================================================*/
+
+/* 1. Reset de Box Model e Margens */
+*, *::before, *::after {
+  margin: 0;   
+  padding: 0;  
+    /* Zerar margens automáticas dos navegadores */
+  
+  box-sizing: border-box;  
+    /* Impedir o padding/borda aumentar tamanho total do Elm */
+}
+
+/* 2. Melhorias de Renderização e Altura */
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+    /* faz com que links internos (âncoras tipo #contato), o navegador pula instantaneamente para a seção. */
+  -webkit-text-size-adjust: none; 
+    /* Impede zoom automático de texto no mobile ao girar a tela */
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased; 
+    /* Remove aquele aspecto "serrilhado" das fontes em navegadores baseados em Webkit (Chrome, Safari), deixando o design com aparência mais profissional. */
+  font-family: sans-serif; 
+    /* Define uma base para não herdar a fonte serifada do sistema */
+  min-height: 100vh; 
+    /* Garante que o corpo ocupe a tela toda */
+  text-rendering: optimizeSpeed;
+}
+
+/* 3. Ajuste de Elementos de Mídia */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+    /* Evita que imagens "vazem" do container */
+}
+
+/* 4. Tipografia, Formulários e Botões (Herança de fonte) */
+input, button, textarea, select {
+  font: inherit;
+    /* garante que tudo no seu site use a mesma tipografia sem você precisar repetir código. */
+}
+
+/* 5. Evitar quebras de layout por palavras muito longas */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 6. Remover decorações de lista e links */
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Faz com que as bordas da tabela se unam em uma só */
+table {
+  border-collapse: collapse;
+}
+
+/* Impede que o usuário "estique" o campo de texto para os lados, quebrando o layout */
+textarea {
+  resize: vertical;
+  min-height: 40px;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+    /* Deixa consistente o contorno azul que aparece ao clicar em botões/links */
+}
+
+/* 8. Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+

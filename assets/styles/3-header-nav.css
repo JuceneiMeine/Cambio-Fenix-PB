@@ -1,0 +1,234 @@
+/*=========== HEADER - CONTAINER ===========*/ 
+
+.header-container {
+  display: flex;
+  gap: 1.8rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-top: .2rem;
+  border-radius: .3rem;  
+  position: sticky;
+  top: 0;
+  z-index: 2005;
+  background-color: transparent;
+
+}
+
+/*=========== HEADER - LOGO ===========*/
+
+.header-logo { /* Container que envolve o link da logo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo a { /* container de interação */
+  display: flex; 
+    /* Alinhar a imagem internamente */
+  text-decoration: none !important;
+  padding: 0;        
+  background: transparent;   
+  box-shadow: none !important; 
+    /* Remove A SOMBRA DA CAIXA */
+  transition: transform 0.3s ease; 
+    /* animação de subida continua aqui */
+}
+
+
+.header-logo-image { /* Ajuste evitar borrão drop-shadow */
+  max-width: 130px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;  
+    /* Sombra mais seca e simples */
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)); 
+    /*Sombra contorno imagem */
+}
+
+.header-logo a:hover { /* Efeito hover link */  
+  transform: translateY(-4px); 
+    /* EFEITO DE MOVIMENTO: link sobe e leva imagem junto) */
+}
+
+
+.header-logo a:hover .header-logo-image { /* Efeito passar mouse */  
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.35)); 
+    /* Drop-shadow fica mais profundo (efeito "flutuar") */
+}
+
+
+/*=========== SOCIAL - CONTAINER ===========*/
+
+.social-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center
+}
+
+.float-btn {
+  display: flex;
+  gap: 10px;
+  align-items: center;  
+  width: 48px;  
+  height: 48px;
+  border-radius: 50%;
+  color: white;  
+  justify-content: center;
+  align-items: center;
+  font-size: 1.9rem;
+    /* tamanho do ícone */  
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    /* Sombra mais profunda para destacar o botão maior */
+  z-index: 10;
+  text-decoration: none;
+  transition: transform 0.2s ease; 
+    /* efeito hover */  
+}
+  
+.float-btn:hover {
+  transform: scale(1.1); 
+    /* botão cresce tocar/passar o mouse */
+}
+  
+.float-insta {   
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+}
+
+.float-whats {   
+  background: #25d366; 
+}
+
+.float-yt {
+    background-color: #FF0000; 
+    color: white;
+}
+
+.float-yt:hover {
+    background-color: #cc0000; 
+}
+
+
+/*=========== HAMBURGUER - CONTAINER ===========*/
+
+.hamburger {
+  display: none; 
+    /* Só aparece no mobile via Media Query */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 60px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2001; 
+    /* Ficar acima de tudo */
+}
+
+/* As 3 barrinhas */
+.hamburger span {
+  width: 50px; 
+    /* tamanho */
+  height: 5px; 
+    /* espessura maior - combinar com largura */
+  background: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  transform-origin: center;
+    /* Centraliza a origem da rotação */  
+}
+
+/* Animação para o "X" - barras grandes */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+    /* Rotaciona e desce um pouco para o centro */
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px); 
+    /* Move para o lado oposto ao sumir */
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+    /* Rotaciona e sobe um pouco para o centro */
+}
+
+.logout-link {
+  color: #ff4d4d !important; 
+    /* Um tom de vermelho para alerta */
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-link:hover {
+  color: #ff0000 !important;
+  text-decoration: underline;
+}
+
+/*=========== ID - MENU HAMBURGUER ===========*/
+
+#nav-titulo-fenix, #nav-quem-somos, #nav-treinamentos-jogos, #nav-local-treino, #nav-diretoria, #nav-contact {
+  padding-top: 80px;
+  margin-top: -80px;
+  display: block;  
+}
+
+
+/*=========== NAVEGAÇÃO - CONTAINER ===========*/
+
+.nav-menu { 
+  display: flex; 
+  flex-direction: row; 
+    /* Garante que fiquem lado a lado no PC */
+  list-style: none;   
+  gap: 20px; 
+  align-items: center;
+  background-color: transparent; 
+    /* Remove fundos residuais */
+  visibility: visible; 
+    /* Garante que apareça no PC */
+  opacity: 1;
+  position: static; 
+    /* Tira o position: fixed do desktop */
+}
+
+.nav-menu li {
+  
+  opacity: 1 !important; 
+    /* Garante que os links apareçam no PC */
+  background-color: var(--creme-2);
+  padding: .2rem .5rem;
+  border: solid .1rem var(--amarelo-7);
+  border-radius: .8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.nav-menu li:hover {
+  background-color: var(--amarelo-7);
+}
+
+/* Remover sublinhado todos links do menu */
+.nav-menu a {
+  text-decoration: none !important; 
+    /* Remove a linha de baixo */
+  color: var(--laranja-queimado); 
+    /* Garante a cor que você definiu */
+  display: inline-block; 
+    /* Melhora a área de clique */
+}
+
+/* Garante que ao passar o mouse também não apareça */
+.nav-menu a:hover {
+  text-decoration: none;
+  color: var(--abobora);
+}
+
+
+
+

@@ -1,0 +1,246 @@
+/*=========== QUEM SOMOS - CONTAINER ===========*/
+
+.quem-somos-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;  
+  color: var(--marrom-1);
+  background-color: var(--creme-2);
+  background-color: transparent;  
+  padding-bottom: 10px;   
+}
+
+.quem-somos-container p {
+  margin-bottom: .3rem;
+  text-indent: 2rem;
+  text-align: justify;
+  hyphens: auto;    
+}
+
+
+/*=========== TREINOS GRID - CONTAINER ===========*/
+
+.treinos-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+    /* Altura proporcional à largura das colunas no desktop */
+  grid-auto-rows: min-content; 
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.foto-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  /* max-width: 700px; */  
+  background-color: #ffffff;   
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  
+  /* Garante que a legenda fique alinhada corretamente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.foto-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.foto-item img {
+  /* Garante que a imagem ocupe o máximo de espaço sem esticar */
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto; 
+    /* Deixa a imagem ditar a altura da caixa */
+
+  /* MÁGICA AQUI: 'contain' mostra a foto INTEIRA sem cortes */
+  aspect-ratio: 3 / 2; 
+    /* Força a proporção 3:2 via código */
+  object-fit: cover;   
+  display: block;
+  opacity: 1;
+  transition: 0.3s;   
+  margin: auto; 
+    /* Posição centralizada */
+}
+
+
+/* Opcional: Efeito hover na imagem */
+.foto-item:hover img {
+  filter: brightness(1.05); 
+    /* Em vez de mudar opacidade, damos um leve brilho */
+}
+
+
+/* AJUSTE NA LEGENDA: 
+  Para fotos inteiras, a legenda fica melhor embaixo, 
+  fora da imagem, para não tampar nada */
+.foto-caption {
+  position: relative; 
+    /* Mudado de absolute para relative */
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  
+  /* Fundo sólido ou leve degradê no fundo do item */
+  background: var(--amarelo-9); 
+  color: var(--laranja-queimado); 
+    /* Cor do texto padrão da página */
+  
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+  border-top: 1px solid #eee; 
+    /* Linha sutil de separação */
+}
+
+
+/*=========== LOCALIZAÇÃO - CONTAINER ===========*/
+
+.localizacao-container {
+  width: 100%;          
+  max-width: 600px;     
+  margin: 2rem auto;     
+    /* Centraliza o container na página */
+  padding: 0 15px;       
+    /* Evita que o mapa encoste nas bordas em celulares */
+}
+
+.localizacao-container img {
+  width: 100%;           
+    /* Faz o mapa preencher a largura da div */
+  height: 350px;         
+    /* Define uma altura fixa */
+  border-radius: 10px;   
+    /* Deixa as bordas arredondadas (opcional) */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    /* Dá um efeito de sombra */
+}
+
+.localizacao-container p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--laranja-queimado);
+  text-align: center;
+}
+
+
+/*=========== FENIX - JARGÃO ===========*/
+
+/* Estilização para o container */
+.jargao-fenix {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estilização principal do Jargão */
+.jargao-fenix h2 {
+  font-family: 'Poppins', sans-serif; 
+    /* Fonte geométrica e limpa */
+  font-size: clamp(2rem, 3vw, 4rem);
+  font-weight: 800;
+  color: rgba(255, 102, 0, 0.866); 
+    /* Cor escura sólida para o texto */
+  display: inline-block;
+  position: relative;
+  padding: 20px 0;
+  width: 100%; 
+  text-align: center;
+  letter-spacing: .2rem;
+  margin: 2rem 0;
+}
+
+/* Linha de Gradiente ACIMA (Antes) */
+.jargao-fenix h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0; 
+    /* Posiciona no topo do H2 */
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, #ffcc00 0%, #ff6600 50%, #cc0000 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+/* A Linha de Gradiente abaixo do texto */
+.jargao-fenix h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; 
+    /* Linha ocupa toda a largura do texto */
+  height: 8px; 
+    /* Espessura da linha */
+  
+  /* Gradiente com as cores do time */
+  background: linear-gradient(90deg, #ffcc00 0%, #ff6600 50%, #cc0000 100%);
+  
+  border-radius: 4px;
+  
+  /* Animação sutil de brilho (opcional) */
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+
+
+/*=========== DIRETORIA - CONTAINER ===========*/
+
+.diretoria-container {
+  padding: 40px 20px;
+  background-color: var(--amarelo-9); 
+  margin-bottom: 2rem;
+}
+
+.diretoria-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  /* Garante que as linhas do grid tenham sempre o mesmo tamanho */
+  align-items: stretch;
+}
+
+.diretoria-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  height: 100%; 
+    /* Força todos os cards a terem a mesma altura da linha */
+}
+
+.diretoria-card:hover {
+  transform: translateY(-8px);
+}
+
+.diretoria-card img {
+  width: 100%;
+  /* height: auto; */
+
+  /* FORÇANDO A ALTURA: 466px é o seu alvo para fotos de 700px de largura */
+  /* Usamos aspect-ratio para manter a proporção 3:2 independente da tela */
+  aspect-ratio: 3 / 2; 
+  
+  /* MÁGICA: Preenche o espaço e corta o que sobrar, sem esticar */
+  object-fit: cover; 
+  
+  display: block;
+}
+
