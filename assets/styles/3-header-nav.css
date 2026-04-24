@@ -157,17 +157,6 @@
     /* Rotaciona e sobe um pouco para o centro */
 }
 
-.logout-link {
-  color: #ff4d4d !important; 
-    /* Um tom de vermelho para alerta */
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.logout-link:hover {
-  color: #ff0000 !important;
-  text-decoration: underline;
-}
 
 /*=========== ID - MENU HAMBURGUER ===========*/
 
