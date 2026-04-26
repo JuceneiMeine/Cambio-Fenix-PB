@@ -1,0 +1,596 @@
+
+/*=========== HEADER ===========*/ 
+
+.header-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: .63rem 1.25rem;
+  margin-top: .2rem;
+  border-radius: .3rem;  
+  position: sticky;
+  top: 0;
+  z-index: 2005;
+  background-color: transparent;
+}
+
+/*=========== LOGO ===========*/
+
+.header-logo { /* Container que envolve o link da logo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo a { /* container de interação */
+  display: flex; 
+    /* Alinhar a imagem internamente */
+  text-decoration: none !important;
+  padding: 0;        
+  background: transparent;   
+  box-shadow: none !important; 
+    /* Remove A SOMBRA DA CAIXA */
+  transition: transform 0.3s ease; 
+    /* animação de subida continua aqui */
+}
+
+
+.header-logo-image { /* Ajuste evitar borrão drop-shadow */
+  max-width: 130px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;  
+    /* Sombra mais seca e simples */
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)); 
+    /*Sombra contorno imagem */
+}
+
+.header-logo a:hover { /* Efeito hover link */  
+  transform: translateY(-4px); 
+    /* EFEITO DE MOVIMENTO: link sobe e leva imagem junto) */
+}
+
+
+.header-logo a:hover { /* Efeito passar mouse */  
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.35)); 
+    /* Drop-shadow fica mais profundo (efeito "flutuar") */
+}
+
+
+/*=========== SOCIAL ===========*/
+
+.social-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  
+}
+
+.float-btn {
+  display: flex;
+  gap: 10px;
+  align-items: center;  
+  width: 48px;  
+  height: 48px;
+  border-radius: 50%;
+  color: white;  
+  justify-content: center;
+  align-items: center;
+  font-size: 1.9rem;
+    /* tamanho do ícone */  
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    /* Sombra mais profunda para destacar o botão maior */
+  z-index: 10;
+  text-decoration: none;
+  transition: transform 0.2s ease; 
+    /* efeito hover */  
+}
+  
+.float-btn:hover {
+  transform: scale(1.1); 
+    /* botão cresce tocar/passar o mouse */
+}
+  
+.float-insta {   
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+}
+
+
+.float-yt {
+    background-color: #FF0000; 
+    color: white;
+}
+
+.float-yt:hover {
+    background-color: #cc0000; 
+}
+
+
+
+
+
+
+
+/*=========== HAMBURGUER - CONTAINER ===========*/
+
+.hamburger {
+  display: none; 
+    /* Só aparece no mobile via Media Query */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2001; 
+    /* Ficar acima de tudo */
+}
+
+/* As 3 barrinhas */
+.hamburger span {
+  width: 50px; 
+    /* tamanho */
+  height: 5px; 
+    /* espessura maior - combinar com largura */
+  background: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  transform-origin: center;
+    /* Centraliza a origem da rotação */  
+}
+
+/* Animação para o "X" - barras grandes */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+    /* Rotaciona e desce um pouco para o centro */
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px); 
+    /* Move para o lado oposto ao sumir */
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+    /* Rotaciona e sobe um pouco para o centro */
+}
+
+
+/*=========== ID - MENU HAMBURGUER ===========*/
+
+#fenix-pb, #treinos-jogos, #local-treino, #diretoria, #contact {
+    scroll-margin-top: 73px;
+}
+
+
+/*=========== NAVEGAÇÃO - CONTAINER ===========*/
+
+.menu { 
+  display: flex; 
+  flex-direction: row; 
+    /* Garante que fiquem lado a lado no PC */
+  list-style: none;   
+  gap: 20px; 
+  align-items: center;
+  background-color: transparent; 
+    /* Remove fundos residuais */
+  visibility: visible; 
+    /* Garante que apareça no PC */
+  opacity: 1;
+  position: static; 
+    /* Tira o position: fixed do desktop */
+}
+
+.menu li {
+  
+  opacity: 1 !important; 
+    /* Garante que os links apareçam no PC */
+  background-color: var(--creme-2);
+  padding: .2rem .5rem;
+  border: solid .1rem var(--amarelo-7);
+  border-radius: .8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.menu li:hover {
+  background-color: var(--amarelo-7);
+}
+
+/* Remover sublinhado todos links do menu */
+.menu a {
+  text-decoration: none !important; 
+    /* Remove a linha de baixo */
+  color: var(--laranja-queimado); 
+    /* Garante a cor que você definiu */
+  display: inline-block; 
+    /* Melhora a área de clique */
+}
+
+/* Garante que ao passar o mouse também não apareça */
+.menu a:hover {
+  text-decoration: none;
+  color: var(--abobora);
+}
+
+
+
+
+
+/*=========== MAIN ===========*/
+
+.main-container {
+  width: 100%; 
+  display: flex;  
+  flex-direction: column;  
+  justify-content: center;  
+  align-items: center;  
+}
+
+/*===== TITULO (h1) e SUBTITULO (h2) =====*/
+
+.titulo { /* h1 */
+  color: var(--marrom-4);  
+  text-shadow: 2px 2px 20px var(--abobora); 
+  padding-top: 2rem;
+  
+}
+
+.subtitulo { /* h2 */
+  color: var(--marrom-4);
+  text-shadow: 4px 4px 20px var(--laranja-queimado);
+}
+
+
+
+/*========== HOME =========*/
+
+.fenix-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;  
+}
+
+.foto-fenix {
+  /* position: relative;  */
+  justify-content: center;
+  max-width: 90%;
+  max-height: 500px;  
+  border-radius: 0.8rem; 
+  overflow: hidden; 
+  cursor: pointer; 
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 15px 35px rgba(255, 92, 0, 0.7));
+}
+
+.foto-fenix:hover {
+  transform: scale(1.02);
+}
+
+.cambio-origem p {
+  font-weight: 500;
+  line-height: 1.4;
+  text-indent: 2rem;
+  text-align: justify;
+  color: var(--marrom-1); 
+  padding: 0 .8rem;
+}
+
+
+/*=========== TREINOS E JOGOS - GRID ===========*/
+
+.treinos-jogos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* ñ ficar largo d+ em monitores 4k */  
+}
+
+.treinos-jogos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: min-content;
+  
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.foto-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;  
+  margin: .4rem;
+  
+  height: 300px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: .8rem;
+}
+
+.foto-item img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;  
+  display: block;
+  opacity: 1;
+  transition: 0.3s;   
+}
+
+.foto-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+
+/* Opcional: Efeito hover na imagem */
+.foto-item:hover img {
+  filter: brightness(1.05); 
+    /* Em vez de mudar opacidade, damos um leve brilho */
+}
+
+
+/* AJUSTE NA LEGENDA: 
+  Para fotos inteiras, a legenda fica melhor embaixo, 
+  fora da imagem, para não tampar nada */
+.foto-caption {
+  position: relative; 
+    /* Mudado de absolute para relative */
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  
+  /* Fundo sólido ou leve degradê no fundo do item */
+  background: var(--amarelo-9); 
+  color: var(--laranja-queimado); 
+    /* Cor do texto padrão da página */
+  
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+  border-top: 1px solid #eee; 
+    /* Linha sutil de separação */
+}
+
+
+/*=========== LOCALIZAÇÃO - CONTAINER ===========*/
+
+.localizacao-container {
+  width: 100%;          
+  max-width: 600px;     
+  margin: 2rem auto;     
+    /* Centraliza o container na página */
+  padding: 0 15px;       
+    /* Evita que o mapa encoste nas bordas em celulares */
+}
+
+.localizacao-container img {
+  width: 100%;           
+    /* Faz o mapa preencher a largura da div */
+  height: 350px;         
+    /* Define uma altura fixa */
+  border-radius: 10px;   
+    /* Deixa as bordas arredondadas (opcional) */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    /* Dá um efeito de sombra */
+}
+
+.localizacao-container p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--laranja-queimado);
+  text-align: center;
+}
+
+
+/*=========== FENIX - JARGÃO ===========*/
+
+/* Estilização para o container */
+.jargao-fenix {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estilização principal do Jargão */
+.jargao-fenix h2 {
+  font-family: 'Poppins', sans-serif; 
+    /* Fonte geométrica e limpa */
+  font-size: clamp(2rem, 3vw, 4rem);
+  font-weight: 800;
+  color: rgba(255, 102, 0, 0.866); 
+    /* Cor escura sólida para o texto */
+  display: inline-block;
+  position: relative;
+  padding: 20px 0;
+  width: 100%; 
+  text-align: center;
+  letter-spacing: .2rem;
+  margin: 2rem 0;
+}
+
+/* Linha de Gradiente ACIMA (Antes) */
+.jargao-fenix h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0; 
+    /* Posiciona no topo do H2 */
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, #ffcc00 0%, #ff6600 50%, #cc0000 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+/* A Linha de Gradiente abaixo do texto */
+.jargao-fenix h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; 
+    /* Linha ocupa toda a largura do texto */
+  height: 8px; 
+    /* Espessura da linha */
+  
+  /* Gradiente com as cores do time */
+  background: linear-gradient(90deg, #ffcc00 0%, #ff6600 50%, #cc0000 100%);
+  
+  border-radius: 4px;
+  
+  /* Animação sutil de brilho (opcional) */
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+
+
+/*=========== DIRETORIA - CONTAINER ===========*/
+
+.diretoria-container {
+  padding: 40px 20px;
+  background-color: var(--amarelo-9); 
+  margin-bottom: 2rem;
+}
+
+.diretoria-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  /* Garante que as linhas do grid tenham sempre o mesmo tamanho */
+  align-items: stretch;
+}
+
+.diretoria-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  height: 100%; 
+    /* Força todos os cards a terem a mesma altura da linha */
+}
+
+.diretoria-card:hover {
+  transform: translateY(-8px);
+}
+
+.diretoria-card img {
+  width: 100%;
+  /* height: auto; */
+
+  /* FORÇANDO A ALTURA: 466px é o seu alvo para fotos de 700px de largura */
+  /* Usamos aspect-ratio para manter a proporção 3:2 independente da tela */
+  aspect-ratio: 3 / 2; 
+  
+  /* MÁGICA: Preenche o espaço e corta o que sobrar, sem esticar */
+  object-fit: cover; 
+  
+  display: block;
+}
+
+
+
+
+/*=====================================
+  WHATSAPP - FLUTUANTE
+  =====================================*/
+
+.whatsapp-float {
+  
+  /* Posicionamento */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  /* Dimensões e formas */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Garante q seja círculo perfeito */
+  
+  /* Cores e Estilo (Substitua as variáveis se necessário) */
+  background-color: #25d366; /* Verde padrão do WhatsApp */
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 35px;
+  
+  /* Centralização do Ícone */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Efeitos e Sombras */
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  
+  /* Melhora o toque no mobile */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #128c7e; /* Verde um pouco mais escuro no hover */
+  color: #ffffff;
+}
+
+
+/*=========== CONTATOS - CONTAINER ===========*/
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-informations {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem ;
+  align-items: center;
+}
+
+.contact-item {
+  padding: .3rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+}
+
+
+/*=========== FOOTER ===========*/
+
+footer { 
+
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.3rem, 2vw, 3rem);
+  font-weight: 300;  
+  background-color: var(--grafite-azul); 
+  color: var(--amarelo-2); 
+  text-align: center; 
+  letter-spacing: .1rem;
+  padding: 1.5rem .4rem; 
+}
+
+
+

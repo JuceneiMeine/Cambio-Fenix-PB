@@ -1,89 +1,165 @@
 
-/*=====================================================
-  RESET & NORMALIZE
-  =====================================================*/
+/*====================================
+CORES PADRONIZADAS
+====================================*/
+:root {
 
-/* 1. Reset de Box Model e Margens */
-*, *::before, *::after {
-  margin: 0;   
-  padding: 0;  
-    /* Zerar margens automáticas dos navegadores */
+  --white: #fff;
+  --black: #222;
+
+  --creme-1: #ffff94;
+  --creme-2: #fdfbd4;
+
+  --amarelo-1: #FFD700;
+  --amarelo-2: #F1E702;
+  --amarelo-3: #F5EF52;
+  --amarelo-4: #F8F27C;
+  --amarelo-5: #FAF493;
+  --amarelo-6: #FAF7A9;
+
+  --ouro-1: #b28405;
+  --ouro-2: #DAA520;
+  --ouro-3: #fbc02d;
+  --ouro-4: #f3c332;
+  --ouro-5: #f9db5c;
   
-  box-sizing: border-box;  
-    /* Impedir o padding/borda aumentar tamanho total do Elm */
+  --marrom-1: #211510;
+  --marrom-2: #3E2723;
+  --marrom-3: #4B3621;  
+  --marrom-4:  #8B4513;
+
+  --salmom-1: #f7b666;
+  
+  --laranja-1: #FF4D00;
+  --laranja-2: #e65729;
+  --laranja-3: #ff5c00;
+  --laranja-4: #e07601;
+  --laranja-5: #FF8C00;
+  --laranja-6: #f28500;
+  --laranja-7: #ed9600;
+  --laranja-8: #f6961f;
+  --laranja-9: #ffa500;
+  
+  --laranja-queimado: #CC5500;
+
+  --abobora: #FF7518;
+  
+  --grafite-1: #2e2e2e;
+  --grafite-2: #4e4949;
+  --grafite-azul: #474a51;
+
+  --azul-1:  #52648d;
+  --azul-2:  #A7D8F0;
+  --azul-3:  #a2ffd2;
+
+  --verde-escuro: #1b5e3a;
+  --verde-medio: #20ba5a;
+  --verde-claro: #90ee90;
+  --verde-lima: #ccff00;  
 }
 
-/* 2. Melhorias de Renderização e Altura */
+/*=================================================
+  RESET & NORMALIZE 
+  ================================================*/
+
+*, *::before, *::after { box-sizing: border-box;}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.3;
+  color: var(--laranja-queimado);
+  background: var(--creme-2);
+  
+  -webkit-font-smoothing: antialiased; 
+    /* Remove aquele aspecto "serrilhado" das fontes em navegadores baseados em Webkit (Chrome, Safari), deixando o design com aparência mais profissional. */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.body-container {
+  display: flex;
+  flex-direction: column;  
+  min-height: 100vh; 
+  max-width: 1400px;  
+  margin: 0 auto;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 html {
   height: 100%;
   scroll-behavior: smooth;
-    /* faz com que links internos (âncoras tipo #contato), o navegador pula instantaneamente para a seção. */
-  -webkit-text-size-adjust: none; 
-    /* Impede zoom automático de texto no mobile ao girar a tela */
+  /* faz com que links internos (âncoras tipo #contato), o navegador pula instantaneamente para a seção. */
+  -webkit-text-size-adjust: 100%; 
 }
 
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased; 
-    /* Remove aquele aspecto "serrilhado" das fontes em navegadores baseados em Webkit (Chrome, Safari), deixando o design com aparência mais profissional. */
-  font-family: sans-serif; 
-    /* Define uma base para não herdar a fonte serifada do sistema */
-  min-height: 100vh; 
-    /* Garante que o corpo ocupe a tela toda */
-  text-rendering: optimizeSpeed;
+img {/*forma flexivel - ñ quebrar layout em telas menores */
+  display: block; /* img ocupa linha inteira sozinha */
+  max-width: 100%; /* ñ ser maior que o seu container */
 }
 
-/* 3. Ajuste de Elementos de Mídia */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-    /* Evita que imagens "vazem" do container */
+h1, h2, h3, h4, h5, h6 {
+  width: 100%;
+  /* overflow-wrap: break-word; quebrar palavras grandes */
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: .2rem;
+  word-spacing: .4rem;
+  line-height: 1.3;
 }
 
-/* 4. Tipografia, Formulários e Botões (Herança de fonte) */
-input, button, textarea, select {
-  font: inherit;
-    /* garante que tudo no seu site use a mesma tipografia sem você precisar repetir código. */
+h1 { /* titulo principal */
+  font-size: clamp(2.2rem, 6vw, 4rem);
 }
 
-/* 5. Evitar quebras de layout por palavras muito longas */
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+h2 { /* secoes principais */
+  font-size: clamp(1.9rem, 5vw, 3rem);
 }
 
-/* 6. Remover decorações de lista e links */
-ul, ol {
-  list-style: none;
+h3 { /* subsecoes */
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+h4 { /* titulos de cards */
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
 }
 
-/* Faz com que as bordas da tabela se unam em uma só */
-table {
-  border-collapse: collapse;
+h5 { /* enfases menores */
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
 }
 
-/* Impede que o usuário "estique" o campo de texto para os lados, quebrando o layout */
+h6 { /* legendas e rotulos */
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+
+label, span, p { font-weight: 500;}
+
+p {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  line-height: 1.3;
+  /* overflow-wrap: break-word; */
+}
+
+ul, ol { list-style: none;}
+
+a { text-decoration: none;}
+
+table { border-collapse: collapse;}
+
 textarea {
   resize: vertical;
   min-height: 40px;
 }
 
-:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-    /* Deixa consistente o contorno azul que aparece ao clicar em botões/links */
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {  
+  html { scroll-behavior: auto;}
 }
-
-/* 8. Acessibilidade */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-
 

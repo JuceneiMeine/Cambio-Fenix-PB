@@ -1,24 +1,24 @@
-/* style.css */
+/* --- IMPORTAR OS ARQUIVOS CSS --- */
+
 
 @import url('./assets/styles/1-reset-normalize.css');
 
-@import url('./assets/styles/2-format-base.css');
+@import url('./assets/styles/3-header-main-footer.css');
 
+/*
 @import url('./assets/styles/3-header-nav.css');
-
-@import url('./assets/styles/4-main-sections.css');
-
-
-@import url('./assets/styles/6-contact-footer.css');
-
+@import url('./assets/styles/5-main-sections.css');
+@import url('./assets/styles/7-footer.css');
+*/
 
 @import url('./assets/styles/9-responsividade.css');
 
 
+/* --- FONTE NUNITO --- */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
-/* --- FONTES --- */
 
-
+/* --- FONTE ROBOTO --- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,700&family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
 
