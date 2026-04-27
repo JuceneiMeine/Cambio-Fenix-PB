@@ -248,6 +248,10 @@
   transform: scale(1.02);
 }
 
+.cambio-origem {
+  max-width: 80% ;
+}
+
 .cambio-origem p {
   font-weight: 500;
   line-height: 1.4;

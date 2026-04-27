@@ -85,19 +85,9 @@
 
   /*======= CAMBIO ORIGEM =======*/
 
-
-
   .cambio-origem {
-    /* width: 95vw; */
+    max-width: 95%;
   }
-
-  .cambio-origem p {
-    max-width: 100%;
-    font-weight: 500;
-    line-height: 1.4;
-  }
-
-
  
   /*======= TREINOS E JOGOS =======*/ 
   
