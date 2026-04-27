@@ -5,7 +5,9 @@
 
   .hamburger {
     display: flex; 
-      /* Aparece no celular */
+    /* Aparece no celular */
+    width: 50px; /* Aumentei para combinar com os spans */
+    height: 35px;
   }
 
   .menu {
@@ -14,9 +16,13 @@
     position: fixed; 
     right: -100%; 
     top: 0;
-    width: 70%;
-    height: 100vh;
-    background: var(--white); 
+    
+    width: max-content; 
+    min-width: 220px;   /* Largura mínima para o design respirar */
+    padding: 4rem 1rem 1rem 1rem;    /* Espaço nas laterais dos links */
+   
+    height: auto;
+    background: var(--creme-2); 
     z-index: 2000;
     transition: right 0.5s ease-in-out, opacity 0.3s;
     
@@ -24,15 +30,27 @@
     visibility: hidden;
     opacity: 0;
     justify-content: center;
+
+    align-items: flex-start; /* Alinha os links à esquerda dentro do menu */
+  
+    /* Sombra para destacar o menu do fundo do site */
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
   }  
+
+  .menu li {
+    width: 100%;
+    margin: .2rem 0; /* Espaçamento vertical entre links */
+    /* background-color: violet; */
+  }
 
   .menu a {
     font-size: 1.5rem;
-    /* Texto com degradê no menu mobile */
+    display: block; /* Garante que o link ocupe a largura disponível */
+    white-space: nowrap; /* Evita que o texto quebre linha se o menu for estreito */
     background: linear-gradient(45deg, #cc2323, #ff8c00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;    
-  }   
+  }
 
   .menu.active {
     right: 0;

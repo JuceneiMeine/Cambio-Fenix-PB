@@ -1,15 +1,15 @@
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const navMenu = document.getElementById('navMenu');
+const menuLinks = document.querySelectorAll('.menu a');
 
+// 1. Função para abrir/fechar ao clicar no botão hambúrguer
 hamburgerBtn.addEventListener('click', () => {
-    // Alterna a animação do botão (X)
     hamburgerBtn.classList.toggle('active');
-    // Alterna a visibilidade do menu
     navMenu.classList.toggle('active');
 });
 
-// Fechar o menu ao clicar em qualquer link
-document.querySelectorAll('.nav-menu a').forEach(link => {
+// 2. Função para fechar ao clicar em qualquer link
+menuLinks.forEach(link => {
     link.addEventListener('click', () => {
         hamburgerBtn.classList.remove('active');
         navMenu.classList.remove('active');

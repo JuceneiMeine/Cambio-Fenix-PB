@@ -35,7 +35,6 @@
     /* animação de subida continua aqui */
 }
 
-
 .header-logo-image { /* Ajuste evitar borrão drop-shadow */
   max-width: 130px;
   height: auto;
@@ -51,7 +50,6 @@
     /* EFEITO DE MOVIMENTO: link sobe e leva imagem junto) */
 }
 
-
 .header-logo a:hover { /* Efeito passar mouse */  
   filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.35)); 
     /* Drop-shadow fica mais profundo (efeito "flutuar") */
@@ -63,8 +61,7 @@
 .social-container {
   display: flex;
   gap: 1rem;
-  align-items: center;
-  
+  align-items: center;  
 }
 
 .float-btn {
@@ -96,7 +93,6 @@
   background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
 }
 
-
 .float-yt {
     background-color: #FF0000; 
     color: white;
@@ -107,16 +103,11 @@
 }
 
 
+/*=========== HAMBURGUER ===========*/
 
-
-
-
-
-/*=========== HAMBURGUER - CONTAINER ===========*/
 
 .hamburger {
-  display: none; 
-    /* Só aparece no mobile via Media Query */
+  display: none; /* Só aparece no mobile via Media Query */
   flex-direction: column;
   justify-content: space-around;
   width: 40px;
@@ -125,27 +116,23 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 2001; 
-    /* Ficar acima de tudo */
+  z-index: 2001;
 }
 
 /* As 3 barrinhas */
 .hamburger span {
-  width: 50px; 
-    /* tamanho */
-  height: 5px; 
-    /* espessura maior - combinar com largura */
+  width: 50px;  /* tamanho */
+  height: 5px;  /* espessura maior - combinar com largura */
   background: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700);
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
   position: relative;
-  transform-origin: center;
-    /* Centraliza a origem da rotação */  
+  transform-origin: center; /* Centraliza origem rotação */  
 }
 
 /* Animação para o "X" - barras grandes */
 .hamburger.active span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
+  transform: translateY(15px) rotate(45deg);
     /* Rotaciona e desce um pouco para o centro */
 }
 
@@ -163,7 +150,7 @@
 
 /*=========== ID - MENU HAMBURGUER ===========*/
 
-#fenix-pb, #treinos-jogos, #local-treino, #diretoria, #contact {
+#fenix-pb, #treinos-jogos, #local-treino, #diretoria, #contato {
     scroll-margin-top: 73px;
 }
 
@@ -172,45 +159,36 @@
 
 .menu { 
   display: flex; 
-  flex-direction: row; 
-    /* Garante que fiquem lado a lado no PC */
+  flex-direction: row; /* fiquem lado a lado no PC */
   list-style: none;   
   gap: 20px; 
   align-items: center;
   background-color: transparent; 
-    /* Remove fundos residuais */
-  visibility: visible; 
-    /* Garante que apareça no PC */
+  visibility: visible; /* Garante que apareça no PC */
   opacity: 1;
-  position: static; 
-    /* Tira o position: fixed do desktop */
+  position: static; /* Tira position: fixed do desktop */
 }
 
-.menu li {
-  
-  opacity: 1 !important; 
-    /* Garante que os links apareçam no PC */
+.menu li {  
+  opacity: 1;  /* os links apareçam no PC */
   background-color: var(--creme-2);
   padding: .2rem .5rem;
-  border: solid .1rem var(--amarelo-7);
-  border-radius: .8rem;
+  border: solid .1rem var(--ouro-5);
+  border-radius: .5rem;
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
 }
 
 .menu li:hover {
-  background-color: var(--amarelo-7);
+  background-color: var(--amarelo-4);
 }
 
 /* Remover sublinhado todos links do menu */
 .menu a {
-  text-decoration: none !important; 
-    /* Remove a linha de baixo */
+  text-decoration: none; 
   color: var(--laranja-queimado); 
-    /* Garante a cor que você definiu */
-  display: inline-block; 
-    /* Melhora a área de clique */
+  display: inline-block;  /* Melhora a área de clique */
 }
 
 /* Garante que ao passar o mouse também não apareça */
@@ -218,9 +196,6 @@
   text-decoration: none;
   color: var(--abobora);
 }
-
-
-
 
 
 /*=========== MAIN ===========*/
@@ -238,15 +213,13 @@
 .titulo { /* h1 */
   color: var(--marrom-4);  
   text-shadow: 2px 2px 20px var(--abobora); 
-  padding-top: 2rem;
-  
+  padding-top: 2rem;  
 }
 
 .subtitulo { /* h2 */
   color: var(--marrom-4);
   text-shadow: 4px 4px 20px var(--laranja-queimado);
 }
-
 
 
 /*========== HOME =========*/
@@ -284,6 +257,10 @@
   padding: 0 .8rem;
 }
 
+.projeto {
+  color: var(--laranja-queimado);
+  font-weight: 700;
+}
 
 /*=========== TREINOS E JOGOS - GRID ===========*/
 
@@ -300,7 +277,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: min-content;
   
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); */
 
   gap: 20px;
   width: 100%;
@@ -326,7 +303,7 @@
 .foto-item img {
   width: 100vw;
   height: 100%;
-  object-fit: cover;  
+  /* object-fit: cover;   */
   display: block;
   opacity: 1;
   transition: 0.3s;   
@@ -349,45 +326,36 @@
   Para fotos inteiras, a legenda fica melhor embaixo, 
   fora da imagem, para não tampar nada */
 .foto-caption {
-  position: relative; 
-    /* Mudado de absolute para relative */
+  position: relative; /* Mudado de absolute para relative */
   bottom: 0;
   width: 100%;
-  padding: 10px;
+  /* padding: 10px; */
   
   /* Fundo sólido ou leve degradê no fundo do item */
-  background: var(--amarelo-9); 
+  /* background: var(--amarelo-6);  */
   color: var(--laranja-queimado); 
-    /* Cor do texto padrão da página */
   
   font-weight: bold;
   font-size: 0.9rem;
   text-align: center;
   border-top: 1px solid #eee; 
-    /* Linha sutil de separação */
 }
 
 
-/*=========== LOCALIZAÇÃO - CONTAINER ===========*/
+/*=========== LOCAL TREINOS ===========*/
 
 .localizacao-container {
   width: 100%;          
   max-width: 600px;     
-  margin: 2rem auto;     
-    /* Centraliza o container na página */
-  padding: 0 15px;       
-    /* Evita que o mapa encoste nas bordas em celulares */
+  margin: 2rem auto;  /* Centraliza container na página */
+  padding: 0 15px;
 }
 
 .localizacao-container img {
-  width: 100%;           
-    /* Faz o mapa preencher a largura da div */
-  height: 350px;         
-    /* Define uma altura fixa */
-  border-radius: 10px;   
-    /* Deixa as bordas arredondadas (opcional) */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-    /* Dá um efeito de sombra */
+  width: 100%; /* mapa preencher a largura da div */
+  height: 350px;  /* Define uma altura fixa */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5); 
 }
 
 .localizacao-container p {
@@ -556,40 +524,50 @@
 
 /*=========== CONTATOS - CONTAINER ===========*/
 
-.contact-container {
+.contato-container {
   display: flex;
   flex-direction: column;
   align-items: center;  
   text-align: center;
-  margin-bottom: 2rem;
+  
 }
 
-.contact-informations {
+.contato-informations {
   display: flex;
-  flex-direction: column;
-  margin-top: 1rem ;
+  flex-direction: column;  
   align-items: center;
+  padding: 0 .3rem;
+  margin-bottom: 2rem;
+  gap: .5rem;
+  /* background-color: violet; */
 }
 
-.contact-item {
-  padding: .3rem;
-  font-family: 'Montserrat', sans-serif;
+.contato-item {
+  /* padding: .4rem .3rem; */
   font-size: 1.5rem;
+
+  /* Ajuste estas duas propriedades abaixo */
+  margin: 0.2rem 0; /* Diminui o espaço entre um parágrafo e outro */
+  line-height: 1.2;  /* Reduz o espaço vertical ocupado pelo texto */
+}
+
+.contato-item i {
+  padding: 0;
+  margin: 0;
 }
 
 
 /*=========== FOOTER ===========*/
 
 footer { 
-
-  font-family: 'Inter', sans-serif;
   font-size: clamp(1.3rem, 2vw, 3rem);
   font-weight: 300;  
   background-color: var(--grafite-azul); 
   color: var(--amarelo-2); 
   text-align: center; 
   letter-spacing: .1rem;
-  padding: 1.5rem .4rem; 
+  padding: 1rem .4rem 2rem .4rem; 
+  margin-bottom: 1rem;
 }
 
 
