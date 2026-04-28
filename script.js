@@ -17,7 +17,15 @@ menuLinks.forEach(link => {
 });
 
 
+// =========== LIGTHBOX - CONTAINER ===========
 
-
-
+document.querySelectorAll('.foto-item img').forEach(img => {
+  img.onclick = function() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('img-expandida');
+    
+    lightbox.style.display = 'flex'; // Mostra o container
+    lightboxImg.src = this.src; // Define img clicada c fonte
+  }
+});
 

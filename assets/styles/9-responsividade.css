@@ -19,7 +19,7 @@
     
     width: max-content; 
     min-width: 220px;   /* Largura mínima para o design respirar */
-    padding: 4rem 1rem 1rem 1rem;    /* Espaço nas laterais dos links */
+    padding: 1rem 1rem 1rem 1rem;    /* Espaço nas laterais dos links */
    
     height: auto;
     background: var(--creme-2); 
@@ -56,6 +56,7 @@
     right: 0;
     visibility: visible;
     opacity: 1;
+    margin-top: 80px;
   }
 
   /* Esconde os links especificamente durante o fechamento no mobile */
@@ -120,9 +121,7 @@
       
   /* Ajuste opcional para o título no celular */
   .jargao-fenix {
-    font-size: clamp(.8rem, 2vw, 3rem);
-    color: var(--ouro-1);
-    text-align: center;
+    width: 98%;
   }  
 
   

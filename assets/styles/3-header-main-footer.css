@@ -3,10 +3,10 @@
 
 .header-container {
   display: flex;
-  gap: 1rem;
+  gap: .5rem;
   justify-content: space-between;
   align-items: center;
-  padding: .63rem 1.25rem;
+  padding: 1rem 1rem;
   margin-top: .2rem;
   border-radius: .3rem;  
   position: sticky;
@@ -109,7 +109,7 @@
 .hamburger {
   display: none; /* Só aparece no mobile via Media Query */
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 40px;
   height: 30px;
   background: transparent;
@@ -117,11 +117,12 @@
   cursor: pointer;
   padding: 0;
   z-index: 2001;
+  margin-right: 1rem;
 }
 
 /* As 3 barrinhas */
 .hamburger span {
-  width: 50px;  /* tamanho */
+  width: 60px;  /* tamanho */
   height: 5px;  /* espessura maior - combinar com largura */
   background: linear-gradient(90deg, #ff0000, #ff8c00, #ffd700);
   border-radius: 10px;
@@ -132,7 +133,7 @@
 
 /* Animação para o "X" - barras grandes */
 .hamburger.active span:nth-child(1) {
-  transform: translateY(15px) rotate(45deg);
+  transform: translateY(20px) rotate(45deg);
     /* Rotaciona e desce um pouco para o centro */
 }
 
@@ -150,7 +151,7 @@
 
 /*=========== ID - MENU HAMBURGUER ===========*/
 
-#fenix-pb, #treinos-jogos, #local-treino, #diretoria, #contato {
+#fenix-pb, #treinos-jogos, #local-treino, #jargao, #diretoria, #contato {
     scroll-margin-top: 73px;
 }
 
@@ -291,17 +292,16 @@
 
 .foto-item {
   position: relative;
-  overflow: hidden;
-  cursor: pointer;  
-  margin: .4rem;
-  
-  height: 300px;
-  
+  overflow: hidden;   
+  margin: .4rem;  
+  height: 300px;  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: .8rem;
+  cursor: pointer; 
+  transition: transform 0.3s ease;
 }
 
 .foto-item img {
@@ -310,10 +310,11 @@
   /* object-fit: cover;   */
   display: block;
   opacity: 1;
-  transition: 0.3s;   
+  /* transition: 0.3s;    */
 }
 
 .foto-item:hover {
+  transform: scale(1.05);
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.6);
 }
@@ -345,6 +346,43 @@
   border-top: 1px solid #eee; 
 }
 
+/* Estilo do fundo do Lightbox */
+.lightbox {
+  display: none; /* Escondido por padrão */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Fundo preto com opacidade */
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* A imagem expandida */
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  border: 3px solid white;
+}
+
+/* Botão de fechar */
+.fechar {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+
+
+
 
 /*=========== LOCAL TREINOS ===========*/
 
@@ -363,7 +401,7 @@
 }
 
 .localizacao-container p {
-  font-size: 1rem;
+  /* font-size: 1rem; */
   font-weight: bold;
   color: var(--laranja-queimado);
   text-align: center;
@@ -374,33 +412,32 @@
 
 /* Estilização para o container */
 .jargao-fenix {
-  text-align: center;
-  padding: 20px;
+  width: 80%;               
+  padding: 0 10px;       
 }
 
 /* Estilização principal do Jargão */
 .jargao-fenix h2 {
-  font-family: 'Poppins', sans-serif; 
-    /* Fonte geométrica e limpa */
-  font-size: clamp(2rem, 3vw, 4rem);
+  font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: 800;
-  color: rgba(255, 102, 0, 0.866); 
+  text-transform: uppercase;
+  color: var(--marrom-3); 
     /* Cor escura sólida para o texto */
-  display: inline-block;
+  display: block;
   position: relative;
-  padding: 20px 0;
+  padding: 2.5rem 0;
   width: 100%; 
   text-align: center;
-  letter-spacing: .2rem;
-  margin: 2rem 0;
+  letter-spacing: .1rem;
+  /* margin: 2rem 0; */
 }
 
 /* Linha de Gradiente ACIMA (Antes) */
-.jargao-fenix h2::before {
+.jargao-fenix h2::before, .jargao-fenix h2::after {
   content: '';
   position: absolute;
   left: 0;
-  top: 0; 
+  /* top: 0;  */
     /* Posiciona no topo do H2 */
   width: 100%;
   height: 8px;
@@ -409,25 +446,8 @@
   box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
 }
 
-/* A Linha de Gradiente abaixo do texto */
-.jargao-fenix h2::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%; 
-    /* Linha ocupa toda a largura do texto */
-  height: 8px; 
-    /* Espessura da linha */
-  
-  /* Gradiente com as cores do time */
-  background: linear-gradient(90deg, #ffcc00 0%, #ff6600 50%, #cc0000 100%);
-  
-  border-radius: 4px;
-  
-  /* Animação sutil de brilho (opcional) */
-  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
-}
+.jargao-fenix h2::before { top: 0; }
+.jargao-fenix h2::after { bottom: 0; }
 
 
 
@@ -525,8 +545,42 @@
   color: #ffffff;
 }
 
+/*=====================================
+  WHATSAPP - contatos
+  =====================================*/
+
+  .whatsapp-icon {
+  color: #25D366; /* Cor oficial do WhatsApp */
+  font-weight: bold;
+}
+
+/* Opcional: remover sublinhado do link */
+.contato-item a {
+  text-decoration: none;
+  color: inherit;
+  border-radius: .5rem;
+  padding: .5rem;
+  font-weight: 600;
+  background-color: var(--amarelo-6);
+}
+
+.contato-item a:hover {
+  text-decoration: underline;
+}
+
+.contato-item {
+  padding: .5rem;
+}
+
+
+
 
 /*=========== CONTATOS - CONTAINER ===========*/
+
+
+.convite {
+  font-size: clamp(1.8rem, 5vw, 4rem);
+}
 
 .contato-container {
   display: flex;
