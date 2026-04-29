@@ -19,6 +19,7 @@ menuLinks.forEach(link => {
 
 // =========== LIGTHBOX - CONTAINER ===========
 
+/*
 document.querySelectorAll('.foto-item img').forEach(img => {
   img.onclick = function() {
     const lightbox = document.getElementById('lightbox');
@@ -28,4 +29,5 @@ document.querySelectorAll('.foto-item img').forEach(img => {
     lightboxImg.src = this.src; // Define img clicada c fonte
   }
 });
+*/
 

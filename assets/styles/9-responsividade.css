@@ -80,8 +80,6 @@
   .foto-fenix img {
     width: 100%;
   }
-
-
   
 
   /*======= CAMBIO ORIGEM =======*/
@@ -90,8 +88,7 @@
     max-width: 95%;
   }
  
-  /*======= TREINOS E JOGOS =======*/ 
-  
+  /*======= TREINOS E JOGOS =======*/   
 
   .treinos-jogos-grid {
     grid-template-columns: 1fr; 
@@ -100,31 +97,25 @@
   }  
 
   .foto-item {
-    /* No celular, a foto define a altura do item */
+    /* foto define a altura do item */
     width: 0 auto; 
     /* padding: 10px; */
     /* background-color: #fff; */
   }
 
   .foto-item img {
-    /* No celular, a foto ocupa a largura total e ajusta a altura */
+    /* foto ocupa a largura total e ajusta a altura */
     width: 100vw;
-    height: 100vh;
-    /* object-fit: contain; */
-    
-  }
-
- 
+    height: 100vh;  
+  } 
   
-  /*=======  =======*/
-   
+  /*======= JARGÃO FÊNIX =======*/   
       
   /* Ajuste opcional para o título no celular */
   .jargao-fenix {
+    margin-top: 2rem;
     width: 98%;
-  }  
-
-  
+  }    
 
   /*======= FOOTER =======*/
 
@@ -134,14 +125,11 @@
   color: var(--amarelo-2);   
 }
 
-
-
   /*======= DIRETORIA =======*/
-
 
 .diretoria-grid {
     grid-template-columns: 1fr; 
-    gap: 20px;
+    gap: 2rem;
     grid-auto-rows: auto;
   }
     
